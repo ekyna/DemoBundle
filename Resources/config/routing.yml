@@ -1,0 +1,23 @@
+ekyna_demo_pages:
+    resource: "routing/pages.yml"
+    prefix:   /
+
+ekyna_demo_catalog:
+    resource: "routing/catalog.yml"
+    prefix:   /catalog
+
+ekyna_demo_category_admin:
+    resource: "routing/admin/category.yml"
+    prefix:   /admin/catalog/categories
+
+ekyna_demo_smartphone_admin:
+    resource: "routing/admin/smartphone.yml"
+    prefix:   /admin/catalog/smartphones
+
+ekyna_demo_tag_admin:
+    resource: "routing/admin/tag.yml"
+    prefix:   /admin/catalog/tags
+
+ekyna_demo_brand_admin:
+    resource: "routing/admin/brand.yml"
+    prefix:   /admin/catalog/brands

@@ -1,0 +1,19 @@
+{% extends "EkynaAdminBundle:Entity:sided.html.twig" %}
+
+{% block title %}
+<h1>{{ 'ekyna_demo.category.header.new_child'|trans({'%name%': category.name})|raw }}</h1>
+{% endblock %}
+
+{% block actions %}
+{{ admin_resource_btn(category, 'list') }}
+{% endblock %}
+
+{% block main %}
+<form action="{{ path('ekyna_demo_category_admin_new_child', {'categoryId': category.id}) }}" {{ form_enctype(form) }} method="post" class="form-horizontal form-with-tabs">
+    {% include "EkynaDemoBundle:Category/Admin:_form.html.twig" %}
+    {{ ui_form_footer(form) }}
+</form>
+{% endblock %}
+
+{% block side %}
+{% endblock %}

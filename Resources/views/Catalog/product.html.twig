@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets -%}
+{{ parent() }}
+{% stylesheets output='css/catalog.css' filter='cssrewrite, ?yui_css'
+    'bundles/ekynademo/css/catalog.css'
+%}
+<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+{%- endstylesheets %}
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-6">
+        <h1 class="product-detail-title">{{ product.designation }}</h1>
+        <div class="product-detail-description">
+            {{ cms_content(product) }}
+        </div>
+        {{ add_to_cart_form(form, product) }}
+    </div>
+    <div class="col-sm-6">
+        <div class="modal-gallery product-detail-gallery">
+	        {% if product.images|length > 0 %}
+	        {% set image = product.images[0] %}
+	        <a class="thumbnail" href="{{ image.path|imagine_filter('admin_modal') }}">
+	            <img alt="{{ image.alt }}" height="409" src="{{ image.path|imagine_filter('product_gallery_big') }}" width="545" />
+	        </a>
+	        {% else %}
+	        <span class="thumbnail">
+		       <img alt="Visuel à venir" height="409" src="http://placehold.it/545x409/f7f7f7/6e829b&text=Visuel+à+venir" width="545" />
+		    </span>
+	        {% endif %}
+	        <div class="product-detail-gallery-thumbs">
+	            {% for image in product.images|slice(1,3) %}
+	            <a class="thumbnail" href="{{ image.path|imagine_filter('admin_modal') }}">
+		            <img alt="{{ image.alt }}" height="126" src="{{ image.path|imagine_filter('product_gallery_small') }}" width="168" />
+		        </a>
+	            {% endfor %}
+	        </div>
+        </div>
+    </div>
+</div>
+{% include 'EkynaCoreBundle:Ui:modal-gallery.html.twig' %}
+{% endblock body %}

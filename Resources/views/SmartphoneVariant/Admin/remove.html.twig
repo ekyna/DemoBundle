@@ -1,0 +1,23 @@
+{% extends "EkynaAdminBundle:Entity:sided.html.twig" %}
+
+{% block title %}
+<h1>{{ 'ekyna_demo.smartphoneVariant.header.remove'|trans({'%name%': smartphoneVariant.name})|raw }}</h1>
+{% endblock %}
+
+{% block actions %}
+{{ ui_button('ekyna_core.button.back', {'type': 'link', 'path': path('ekyna_demo_smartphone_admin_show', identifiers)}) }}
+{{ admin_resource_btn(variant, 'new') }}
+{% endblock %}
+
+{% block main %}
+<form action="{{ path('ekyna_demo_smartphoneVariant_admin_remove', identifiers|merge({'smartphoneVariantId': smartphoneVariant.id})) }}" method="post" class="form-horizontal">
+    <div class="form-body">
+        {{ bootstrap_set_style('horizontal') }}
+        {{ form_widget(form) }}
+    </div>
+    {{ ui_form_footer(form) }}
+</form>
+{% endblock %}
+
+{% block side %}
+{% endblock %}

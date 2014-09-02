@@ -1,0 +1,24 @@
+ekyna_catalog_index:
+    pattern: /
+    defaults:
+        _controller: EkynaDemoBundle:Catalog:index
+    requirements:
+        _method: GET
+
+ekyna_catalog_category:
+    pattern: /{categorySlug}
+    defaults:
+        _controller: EkynaDemoBundle:Catalog:category
+        page: 1
+    requirements:
+        _method: GET
+        categorySlug: "[a-z0-9-/]+"
+
+ekyna_catalog_product:
+    pattern: /{categorySlug}/{productSlug}.html
+    defaults:
+        _controller: EkynaDemoBundle:Catalog:product
+    requirements:
+        _method: GET
+        categorySlug: "[a-z0-9-]+"
+        productSlug: "[a-z0-9-]+"

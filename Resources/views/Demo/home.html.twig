@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block breadcrumb %}{% endblock breadcrumb %}
+
+{% block body %}
+{{ cms_title() }}
+{{ cms_content() }}
+<hr>
+{{ cms_block('home-bottom') }}
+{% endblock %}

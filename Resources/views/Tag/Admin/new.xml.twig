@@ -1,0 +1,11 @@
+{% extends 'EkynaAdminBundle::base.xml.twig' %}
+
+{% block response %}
+<title>{{ 'ekyna_demo.tag.header.new'|trans|raw }}</title>
+<form><![CDATA[
+<form action="{{ path('ekyna_demo_tag_admin_new') }}" {{ form_enctype(form) }} method="post" class="form-horizontal form-with-tabs">
+    {% include "EkynaDemoBundle:Tag/Admin:_form.html.twig" %}
+    {{ ui_form_footer(form) }}
+</form>
+]]></form>
+{% endblock %}

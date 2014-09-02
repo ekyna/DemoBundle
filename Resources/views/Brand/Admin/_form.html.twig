@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#prod-brand-general" data-toggle="tab">{{ 'ekyna_core.field.general'|trans }}</a></li>
+    <li><a href="#demo-brand-seo" data-toggle="tab">{{ 'ekyna_core.field.seo'|trans }}</a></li>
+</ul>
+<div class="panel-body form-body">
+    {{ bootstrap_set_style('horizontal') }}
+    <div class="tab-content">
+	    <div class="tab-pane active" id="prod-brand-general">
+	        {{ form_row(form.title) }}
+	    </div>
+        <div class="tab-pane" id="demo-brand-seo">
+            {{ form_row(form.seo.title) }}
+            {{ form_row(form.seo.description) }}
+            <div class="row">
+                <div class="col-md-6">{{ form_row(form.seo.changefreq, {'label_col': 4, 'widget_col': 8}) }}</div>
+                <div class="col-md-6">{{ form_row(form.seo.priority, {'label_col': 4, 'widget_col': 8}) }}</div>
+            </div>
+        </div>
+        {{ form_rest(form) }}
+    </div>
+</div>

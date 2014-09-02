@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets -%}
+{{ parent() }}
+{% stylesheets output='css/catalog.css' filter='cssrewrite, ?yui_css'
+    'bundles/ekynademo/css/catalog.css'
+%}
+<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+{%- endstylesheets %}
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-9">
+    {% block content %}{% endblock content %}
+    <hr>
+    {% include 'EkynaDemoBundle:Catalog:_list.html.twig' %}
+    </div>
+    <div class="col-md-3">
+        {{ render(controller('EkynaDemoBundle:Catalog:sideMenu')) }}
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,8 @@
+{% extends 'EkynaAdminBundle::base.xml.twig' %}
+
+{% block response %}
+<title>{{ 'ekyna_demo.category.header.list'|trans|raw }}</title>
+<list><![CDATA[
+{{ ekyna_table_render(categories) }}
+]]></list>
+{% endblock response %}

@@ -1,0 +1,23 @@
+{% extends "EkynaAdminBundle:Entity:sided.html.twig" %}
+
+{% block title %}
+<h1>{{ 'ekyna_demo.smartphone.header.remove'|trans({'%name%': smartphone.name})|raw }}</h1>
+{% endblock %}
+
+{% block actions %}
+{{ admin_resource_btn(smartphone, 'list') }}
+{{ admin_resource_btn(smartphone, 'new') }}
+{% endblock %}
+
+{% block main %}
+<form action="{{ path('ekyna_demo_smartphone_admin_remove', identifiers|merge({'smartphoneId': smartphone.id})) }}" method="post" class="form-horizontal">
+    <div class="form-body">
+        {{ bootstrap_set_style('horizontal') }}
+        {{ form_widget(form) }}
+    </div>
+    {{ ui_form_footer(form) }}
+</form>
+{% endblock %}
+
+{% block side %}
+{% endblock %}
