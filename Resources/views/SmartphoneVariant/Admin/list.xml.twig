@@ -1,0 +1,8 @@
+{% extends 'EkynaAdminBundle::base.xml.twig' %}
+
+{% block response %}
+<title>{{ 'ekyna_demo.variant.header.list'|trans|raw }}</title>
+<list><![CDATA[
+{{ ekyna_table_render(variants) }}
+]]></list>
+{% endblock response %}

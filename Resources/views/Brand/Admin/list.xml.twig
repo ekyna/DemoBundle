@@ -1,0 +1,6 @@
+{% extends 'EkynaAdminBundle::base.xml.twig' %}
+
+{% block response %}
+<title>{{ 'ekyna_demo.brand.header.list'|trans|raw }}</title>
+<list><![CDATA[{{ ekyna_table_render(brands) }}]]></list>
+{% endblock response %}
