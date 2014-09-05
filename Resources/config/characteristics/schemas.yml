@@ -14,11 +14,14 @@ schemas:
                     size:
                         title: Taille de l'écran
                         type: number
+                        parameters:
+                            format: "%s pouces"
                     brand:
                         title: Marque
-                        type: virtual
+                        type: text
                         parameters:
-                            property_path: smartphone.brand.title
+                            virtual: true
+                            property_paths: ['smartphone.brand.title']
             network:
                 title: Réseaux
                 characteristics:

@@ -2,9 +2,8 @@
 
 namespace Ekyna\Bundle\DemoBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
+use Ekyna\Bundle\AdminBundle\Form\Type\ResourceFormType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -12,15 +11,8 @@ use Doctrine\ORM\EntityRepository;
  *
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class CategoryType extends AbstractType
+class CategoryType extends ResourceFormType
 {
-    protected $dataClass;
-
-    public function __construct($class)
-    {
-        $this->dataClass = $class;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -62,16 +54,6 @@ class CategoryType extends AbstractType
                 )
             ))
         ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => $this->dataClass,
-        ));
     }
 
     /**

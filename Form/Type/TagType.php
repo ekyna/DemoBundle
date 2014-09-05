@@ -2,24 +2,16 @@
 
 namespace Ekyna\Bundle\DemoBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
+use Ekyna\Bundle\AdminBundle\Form\Type\ResourceFormType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * TagType
  *
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class TagType extends AbstractType
+class TagType extends ResourceFormType
 {
-    protected $dataClass;
-
-    public function __construct($class)
-    {
-        $this->dataClass = $class;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -30,16 +22,6 @@ class TagType extends AbstractType
                 'label' => 'ekyna_core.field.name',
             ))
         ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => $this->dataClass,
-        ));
     }
 
     /**

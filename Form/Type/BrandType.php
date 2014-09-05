@@ -2,25 +2,16 @@
 
 namespace Ekyna\Bundle\DemoBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
+use Ekyna\Bundle\AdminBundle\Form\Type\ResourceFormType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Doctrine\ORM\EntityRepository;
 
 /**
  * BrandType.
  *
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class BrandType extends AbstractType
+class BrandType extends ResourceFormType
 {
-    protected $dataClass;
-
-    public function __construct($class)
-    {
-        $this->dataClass = $class;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -35,16 +26,6 @@ class BrandType extends AbstractType
                 'label' => false
             ))
         ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => $this->dataClass,
-        ));
     }
 
     /**
