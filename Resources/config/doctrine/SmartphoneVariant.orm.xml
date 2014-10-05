@@ -11,11 +11,10 @@
             <generator strategy="AUTO" />
         </id>
 
-        <one-to-one field="characteristics" target-entity="Ekyna\Bundle\DemoBundle\Entity\SmartphoneVariantCharacteristics" inversed-by="variant">
+        <one-to-one field="characteristics" target-entity="Ekyna\Bundle\DemoBundle\Entity\SmartphoneVariantCharacteristics" mapped-by="variant">
             <cascade>
                 <cascade-all />
             </cascade>
-            <join-column name="characteristics_id" referenced-column-name="id" />
         </one-to-one>
 
         <many-to-one field="smartphone" target-entity="Ekyna\Bundle\DemoBundle\Entity\Smartphone" inversed-by="variants">

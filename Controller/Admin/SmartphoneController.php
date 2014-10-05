@@ -7,7 +7,6 @@ use Ekyna\Bundle\AdminBundle\Controller\ResourceController;
 use Ekyna\Bundle\AdminBundle\Controller\Resource\TinymceTrait;
 use Ekyna\Bundle\CmsBundle\Entity\Content;
 use Ekyna\Bundle\CmsBundle\Entity\TinymceBlock;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * SmartphoneController.
@@ -23,6 +22,7 @@ class SmartphoneController extends ResourceController
      */
 	protected function createNew(Context $context)
 	{
+        // TODO useless ???
 	    $resource = parent::createNew($context);
 
 	    $block = new TinymceBlock();

@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Ekyna\Bundle\CmsBundle\Model\ContentSubjectTrait;
 use Ekyna\Bundle\CmsBundle\Model\ContentSubjectInterface;
 use Ekyna\Bundle\CmsBundle\Entity\Seo;
+use Ekyna\Bundle\CmsBundle\Model\SeoSubjectInterface;
+use Ekyna\Bundle\CmsBundle\Model\SeoSubjectTrait;
 use Ekyna\Bundle\ProductBundle\Entity\AbstractProduct;
 
 /**
@@ -13,9 +15,10 @@ use Ekyna\Bundle\ProductBundle\Entity\AbstractProduct;
  *
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class Smartphone extends AbstractProduct implements ContentSubjectInterface
+class Smartphone extends AbstractProduct implements ContentSubjectInterface, SeoSubjectInterface
 {
     use ContentSubjectTrait;
+    use SeoSubjectTrait;
 
     /**
      * @var string
@@ -41,11 +44,6 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface
      * @var \DateTime
      */
     protected $releasedAt;
-
-    /**
-     * @var \Ekyna\Bundle\CmsBundle\Entity\Seo
-     */
-    protected $seo;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -200,32 +198,9 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface
     }
 
     /**
-     * Set seo
-     *
-     * @param \Ekyna\Bundle\CmsBundle\Entity\Seo $seo
-     * @return Smartphone
-     */
-    public function setSeo(Seo $seo = null)
-    {
-        $this->seo = $seo;
-
-        return $this;
-    }
-
-    /**
-     * Get seo
-     *
-     * @return \Ekyna\Bundle\CmsBundle\Entity\Seo 
-     */
-    public function getSeo()
-    {
-        return $this->seo;
-    }
-
-    /**
      * Add images
      *
-     * @param SmartphoneImage $images
+     * @param SmartphoneImage $image
      * @return Smartphone
      */
     public function addImage(SmartphoneImage $image)
@@ -239,7 +214,7 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface
     /**
      * Remove images
      *
-     * @param SmartphoneImage $images
+     * @param SmartphoneImage $image
      */
     public function removeImage(SmartphoneImage $image)
     {

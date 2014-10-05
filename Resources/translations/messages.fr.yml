@@ -8,14 +8,14 @@ ekyna_demo:
             plural: Catégories
         header:
             list: Catégories <small>Liste des catégories</small>
-            show: Detail de la catégorie <small>%name%</small>
+            show: Détail de la catégorie <small>%name%</small>
             new: Créer une nouvelle catégorie
             new_child: Créer une nouvelle catégorie sous <small>%name%</small>
             edit: Modifier la catégorie <small>%name%</small>
             remove: Supprimer la catégorie <small>%name%</small>
         button:
             list: Liste des catégories
-            show: Detail de la catégorie
+            show: Détail de la catégorie
             new: Nouvelle catégorie
             edit: Modifier la catégorie
             remove: Supprimer la catégorie
@@ -27,14 +27,14 @@ ekyna_demo:
             plural: Smartphones
         header:
             list: Smartphones <small>Liste des smartphones</small>
-            show: Detail du smartphone <small>%name%</small>
+            show: Détail du smartphone <small>%name%</small>
             new: Créer un nouveau smartphone
             edit: Modifier le smartphone <small>%name%</small>
             edit_characteristics: Modifier les caractéristiques <small>%name%</small>
             remove: Supprimer le smartphone <small>%name%</small>
         button:
             list: Liste des smartphones
-            show: Detail du smartphone
+            show: Détail du smartphone
             new: Nouveau smartphone
             edit: Modifier le smartphone
             edit_characteristics: Modifier les caractéristiques
@@ -47,13 +47,13 @@ ekyna_demo:
             plural: Variantes
         header:
             list: Variantes <small>Liste des Variantes</small>
-            show: Detail de la variante <small>%name%</small>
+            show: Détail de la variante <small>%name%</small>
             new: Créer une nouvelle variante
             edit: Modifier la variante <small>%name%</small>
             remove: Supprimer la variante <small>%name%</small>
         button:
             list: Liste des variantes
-            show: Detail de la variante
+            show: Détail de la variante
             new: Nouvelle variante
             edit: Modifier la variante
             remove: Supprimer la variante
@@ -65,13 +65,13 @@ ekyna_demo:
             plural: Tags
         header:
             list: Tags <small>Liste des tags</small>
-            show: Detail du tag <small>%name%</small>
+            show: Détail du tag <small>%name%</small>
             new: Créer un nouveau tag
             edit: Modifier le tag <small>%name%</small>
             remove: Supprimer le tag <small>%name%</small>
         button:
             list: Liste des tags
-            show: Detail du tag
+            show: Détail du tag
             new: Nouveau tag
             edit: Modifier le tag
             remove: Supprimer le tag
@@ -83,13 +83,13 @@ ekyna_demo:
             plural: Marques
         header:
             list: Marques <small>Liste des marques</small>
-            show: Detail de la marque <small>%name%</small>
+            show: Détail de la marque <small>%name%</small>
             new: Créer une nouvelle marque
             edit: Modifier la marque <small>%name%</small>
             remove: Supprimer la marque <small>%name%</small>
         button:
             list: Liste des marques
-            show: Detail de la marque
+            show: Détail de la marque
             new: Nouvelle marque
             edit: Modifier la marque
             remove: Supprimer la marque

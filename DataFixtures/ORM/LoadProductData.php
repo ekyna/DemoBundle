@@ -84,7 +84,7 @@ class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
                 $image
                     ->setPosition($j)
                     ->setFile(new UploadedFile($realpath, $filename))
-                    ->setName(sprintf('%s photo %s', $smartphoneName, $j+1))
+                    ->setRename(sprintf('%s photo %s', $smartphoneName, $j+1))
                     ->setAlt(sprintf('%s photo %s', $smartphoneName, $j+1))
                 ;
                 $smartphone->addImage($image);

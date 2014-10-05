@@ -45,6 +45,11 @@ class Category
     /**
      * @var string
      */
+    protected $color;
+
+    /**
+     * @var string
+     */
     protected $html;
 
     /**
@@ -230,6 +235,28 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Sets the color.
+     *
+     * @param string $color
+     * @return Category
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+        return $this;
+    }
+
+    /**
+     * Returns the color.
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 
     /**

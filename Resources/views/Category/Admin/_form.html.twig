@@ -4,10 +4,12 @@
 </ul>
 <div class="panel-body form-body">
     {{ bootstrap_set_style('horizontal') }}
+    {{ form_errors(form) }}
     <div class="tab-content">
 	    <div class="tab-pane active" id="demo-category-general">
 	        {{ form_row(form.name) }}
 	        {{ form_row(form.parent) }}
+            {{ form_row(form.color) }}
             {{ form_row(form.html) }}
 	        {{ form_row(form.image) }}
 	    </div>

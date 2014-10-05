@@ -24,16 +24,16 @@
 		    <div class="tab-pane active" id="prod-brand-general">
 		      {{ show_row(brand.title, null, 'ekyna_core.field.title') }}
 		    </div>
-	    </div>
-        <div class="tab-pane" id="prod-brand-seo">
-            {{ show_row(brand.seo.title, 'text', 'ekyna_core.field.title') }}
-            {{ show_row(brand.seo.description, 'text', 'ekyna_core.field.description') }}
-            <div class="row">
-                <div class="col-md-6">
-                    {{ show_row(brand.seo.changefreq, 'text', 'ekyna_core.field.changefreq', {'label_nb_col': 4}) }}
-                </div>
-                <div class="col-md-6">
-                    {{ show_row(brand.seo.priority, 'text', 'ekyna_core.field.priority', {'label_nb_col': 4}) }}
+            <div class="tab-pane" id="prod-brand-seo">
+                {{ show_row(brand.seo.title, 'text', 'ekyna_core.field.title') }}
+                {{ show_row(brand.seo.description, 'text', 'ekyna_core.field.description') }}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ show_row(brand.seo.changefreq, 'text', 'ekyna_core.field.changefreq', {'label_nb_col': 4}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ show_row(brand.seo.priority, 'text', 'ekyna_core.field.priority', {'label_nb_col': 4}) }}
+                    </div>
                 </div>
             </div>
         </div>

@@ -7,8 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * CategoryType.
- *
+ * Class CategoryType
+ * @package Ekyna\Bundle\DemoBundle\Form\Type
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
 class CategoryType extends ResourceFormType
@@ -23,14 +23,18 @@ class CategoryType extends ResourceFormType
                 'label' => 'ekyna_core.field.name',
                 'required' => true,
             ))
+            ->add('color', 'ekyna_core_color_picker', array(
+                'label' => 'ekyna_core.field.color',
+                'required' => true,
+            ))
             ->add('parent', 'entity', array(
                 'label' => 'ekyna_core.field.parent',
                 'class' => $this->dataClass,
                 'empty_value' => 'ekyna_core.field.root',
                 'query_builder' => function(EntityRepository $er) {
                     return $er
-                        ->createQueryBuilder('p')
-                        ->orderBy('p.left', 'ASC')
+                        ->createQueryBuilder('c')
+                        ->orderBy('c.left', 'ASC')
                     ;
                 },
                 'property' => 'name',
@@ -41,7 +45,7 @@ class CategoryType extends ResourceFormType
                 'data_class' => 'Ekyna\Bundle\DemoBundle\Entity\CategoryImage',
                 'required' => false,
                 'alt_field' => false,
-                'name_field' => false,
+                'rename_field' => false,
             ))
             ->add('seo', 'ekyna_cms_seo', array(
                 'label' => false

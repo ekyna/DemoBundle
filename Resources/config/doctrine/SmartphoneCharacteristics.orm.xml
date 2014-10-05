@@ -5,9 +5,11 @@
     xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                         http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Ekyna\Bundle\DemoBundle\Entity\SmartphoneCharacteristics" table="demo_smartphone_characteristics">
+    <entity name="Ekyna\Bundle\DemoBundle\Entity\SmartphoneCharacteristics">
 
-        <one-to-one field="smartphone" target-entity="Ekyna\Bundle\DemoBundle\Entity\Smartphone" mapped-by="characteristics" />
+        <one-to-one field="smartphone" target-entity="Ekyna\Bundle\DemoBundle\Entity\Smartphone" inversed-by="characteristics">
+            <join-column name="smartphone_id" referenced-column-name="id" on-delete="CASCADE" nullable="true" />
+        </one-to-one>
 
     </entity>
 

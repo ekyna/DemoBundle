@@ -14,15 +14,15 @@ class SmartphoneImage extends AbstractGalleryImage
     /**
      * The smartphone.
      * 
-     * @var \Ekyna\Bundle\DemoBundle\Entity\Smartphone
+     * @var Smartphone
      */
     protected $smartphone;
 
     /**
      * Sets the smartphone.
      *
-     * @param \Ekyna\Bundle\DemoBundle\Entity\Smartphone $product
-     * @return \Ekyna\Bundle\DemoBundle\Entity\ProductImage
+     * @param Smartphone $smartphone
+     * @return SmartphoneImage
      */
     public function setSmartphone(Smartphone $smartphone = null)
     {
@@ -32,9 +32,9 @@ class SmartphoneImage extends AbstractGalleryImage
     }
 
     /**
-     * Returns the product.
+     * Returns the smartphone.
      *
-     * @return \Ekyna\Bundle\DemoBundle\Entity\Smartphone
+     * @return Smartphone
      */
     public function getSmartphone()
     {

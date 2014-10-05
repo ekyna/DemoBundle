@@ -9,14 +9,14 @@
         <property name="image">
             <constraint name="Valid" />
         </property>
+        <property name="color">
+            <constraint name="Ekyna\Bundle\CoreBundle\Validator\Constraints\Color" />
+        </property>
     </class>
 
     <class name="Ekyna\Bundle\DemoBundle\Entity\Smartphone">
         <property name="images">
             <constraint name="Valid" />
-            <constraint name="All">
-                <constraint name="NotNull" />
-            </constraint>
         </property>
     </class>
 

@@ -12,17 +12,17 @@ class SmartphoneVariant
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var \Ekyna\Bundle\DemoBundle\Entity\Smartphone
      */
-    private $smartphone;
+    protected $smartphone;
 
     /**
      * @var \Ekyna\Bundle\DemoBundle\Entity\SmartphoneVariantCharacteristics
      */
-    private $characteristics;
+    protected $characteristics;
 
     /**
      * Constructor.
@@ -62,7 +62,7 @@ class SmartphoneVariant
      * @param \Ekyna\Bundle\DemoBundle\Entity\Smartphone $smartphone
      * @return \Ekyna\Bundle\DemoBundle\Entity\SmartphoneVariant
      */
-    public function setSmartphone($smartphone)
+    public function setSmartphone($smartphone = null)
     {
         $this->smartphone = $smartphone;
 
