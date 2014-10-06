@@ -32,7 +32,7 @@
                 {{ show_row(smartphone.brand, 'entity', 'ekyna_core.field.brand', {'field': 'title', 'route': 'ekyna_demo_brand_admin_show', 'route_params_map': {'brandId': 'id'}}) }}
                 <div class="row">
                     <div class="col-md-6">{{ show_row(smartphone.reference, 'text', 'ekyna_core.field.reference', {'label_nb_col': 4}) }}</div>
-                    <div class="col-md-6">{{ show_row(smartphone.releasedAt, 'datetime', 'Sortie le', {'label_nb_col': 4}) }}</div>
+                    <div class="col-md-6">{{ show_row(smartphone.releasedAt, 'date', 'Sortie le', {'label_nb_col': 4, 'format': 'MMMM y'}) }}</div>
                 </div>
                 {{ show_row(smartphone.tags, 'entity', 'ekyna_core.field.tags', {'field': 'name', 'route': 'ekyna_demo_tag_admin_show', 'route_params_map': {'tagId': 'id'}}) }}
             </div>

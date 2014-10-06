@@ -3,7 +3,7 @@
 {% block stylesheets -%}
 {{ parent() }}
 {% stylesheets output='css/catalog.css' filter='cssrewrite, ?yui_css'
-    'bundles/ekynademo/css/catalog.css'
+    '@EkynaDemoBundle/Resources/asset/css/catalog.css'
 %}
 <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
 {%- endstylesheets %}
