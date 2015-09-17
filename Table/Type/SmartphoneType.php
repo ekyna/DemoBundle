@@ -3,6 +3,7 @@
 namespace Ekyna\Bundle\DemoBundle\Table\Type;
 
 use Ekyna\Bundle\AdminBundle\Table\Type\ResourceTableType;
+use Ekyna\Component\Sale\Product\ProductTypes;
 use Ekyna\Component\Table\TableBuilderInterface;
 
 /**
@@ -15,9 +16,9 @@ class SmartphoneType extends ResourceTableType
     /**
      * {@inheritdoc}
      */
-    public function buildTable(TableBuilderInterface $tableBuilder)
+    public function buildTable(TableBuilderInterface $builder, array $options)
     {
-        $tableBuilder
+        $builder
             ->addColumn('id', 'number', array(
                 'sortable' => true,
             ))
@@ -37,6 +38,11 @@ class SmartphoneType extends ResourceTableType
                 'route_parameters_map' => array(
                     'categoryId' => 'category.id'
                 ),
+            ))
+            ->addColumn('type', 'choice', array(
+                'label' => 'ekyna_core.field.type',
+                'sortable' => false,
+                'choices' => ProductTypes::getChoices(),
             ))
             ->addColumn('price', 'number', array(
                 'label' => 'ekyna_core.field.price',
@@ -70,6 +76,10 @@ class SmartphoneType extends ResourceTableType
             ))
             ->addFilter('price', 'number', array(
         	    'label' => 'ekyna_core.field.price'
+            ))
+            ->addFilter('type', 'choice', array(
+        	    'label' => 'ekyna_core.field.type',
+                'choices' => ProductTypes::getChoices(),
             ))
         ;
     }

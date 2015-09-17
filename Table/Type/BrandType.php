@@ -15,9 +15,9 @@ class BrandType extends ResourceTableType
     /**
      * {@inheritdoc}
      */
-    public function buildTable(TableBuilderInterface $tableBuilder)
+    public function buildTable(TableBuilderInterface $builder, array $options)
     {
-        $tableBuilder
+        $builder
             ->addColumn('id', 'number', array(
                 'sortable' => true,
             ))

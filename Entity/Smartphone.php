@@ -3,22 +3,28 @@
 namespace Ekyna\Bundle\DemoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Ekyna\Bundle\CmsBundle\Model\ContentSubjectTrait;
-use Ekyna\Bundle\CmsBundle\Model\ContentSubjectInterface;
 use Ekyna\Bundle\CmsBundle\Entity\Seo;
-use Ekyna\Bundle\CmsBundle\Model\SeoSubjectInterface;
-use Ekyna\Bundle\CmsBundle\Model\SeoSubjectTrait;
+use Ekyna\Bundle\CmsBundle\Model as Cms;
+use Ekyna\Bundle\CoreBundle\Model as Core;
+use Ekyna\Bundle\MediaBundle\Model as Media;
 use Ekyna\Bundle\ProductBundle\Entity\AbstractProduct;
 
 /**
- * Smartphone.
- *
+ * Class Smartphone
+ * @package Ekyna\Bundle\DemoBundle\Entity
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class Smartphone extends AbstractProduct implements ContentSubjectInterface, SeoSubjectInterface
+class Smartphone
+    extends AbstractProduct
+    implements Cms\ContentSubjectInterface,
+        Cms\SeoSubjectInterface,
+        Cms\TagsSubjectInterface,
+        Core\TaggedEntityInterface
 {
-    use ContentSubjectTrait;
-    use SeoSubjectTrait;
+    use Cms\ContentSubjectTrait,
+        Cms\SeoSubjectTrait,
+        Cms\TagsSubjectTrait,
+        Core\TaggedEntityTrait;
 
     /**
      * @var string
@@ -41,29 +47,30 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface, Seo
     protected $html;
 
     /**
+     * @var ArrayCollection|SmartphoneImage[]
+     */
+    protected $images;
+
+    /**
+     * @var Media\MediaInterface
+     */
+    protected $document;
+
+    /**
      * @var \DateTime
      */
     protected $releasedAt;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     */
-    protected $images;
-
-    /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var ArrayCollection|SmartphoneVariant[]
      */
     protected $variants;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    protected $tags;
-
-    /**
-     * @var \Ekyna\Bundle\DemoBundle\Entity\SmartphoneCharacteristics
+     * @var SmartphoneCharacteristics
      */
     protected $characteristics;
+
 
     /**
      * Constructor.
@@ -73,8 +80,8 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface, Seo
         parent::__construct();
 
         $this->contents = new ArrayCollection();
-        $this->images = new ArrayCollection();
         $this->variants = new ArrayCollection();
+        $this->images = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->seo = new Seo();
         $this->setCharacteristics(new SmartphoneCharacteristics());
@@ -198,40 +205,6 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface, Seo
     }
 
     /**
-     * Add images
-     *
-     * @param SmartphoneImage $image
-     * @return Smartphone
-     */
-    public function addImage(SmartphoneImage $image)
-    {
-        $image->setSmartphone($this);
-        $this->images[] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Remove images
-     *
-     * @param SmartphoneImage $image
-     */
-    public function removeImage(SmartphoneImage $image)
-    {
-        $this->images->removeElement($image);
-    }
-
-    /**
-     * Get images
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getImages()
-    {
-        return $this->images;
-    }
-
-    /**
      * Sets the variants.
      *
      * @param \Doctrine\Common\Collections\ArrayCollection $variants
@@ -288,47 +261,81 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface, Seo
     }
 
     /**
-     * @param \Doctrine\Common\Collections\Collection $tags
+     * Sets the images.
+     *
+     * @param SmartphoneImage[] $images
+     * @return Smartphone
      */
-    public function setTags($tags)
+    public function setImages($images)
     {
-        $this->tags = $tags;
+        $this->images = $images;
+        return $this;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function hasImage(SmartphoneImage $image)
+    {
+        return $this->images->contains($image);
     }
 
     /**
-     * Add tag
-     *
-     * @param Tag $tag
-     * @return Smartphone
+     * {@inheritdoc}
      */
-    public function addTag(Tag $tag)
+    public function addImage(SmartphoneImage $image)
     {
-        $this->tags[] = $tag;
-
+        if (!$this->hasImage($image)) {
+            $image->setSmartphone($this);
+            $this->images->add($image);
+            $this->setUpdatedAt(new \DateTime());
+        }
         return $this;
     }
 
     /**
-     * Removes a tag.
+     * {@inheritdoc}
+     */
+    public function removeImage(SmartphoneImage $image)
+    {
+        if ($this->hasImage($image)) {
+            $image->setSmartphone(null);
+            $this->images->removeElement($image);
+            $this->setUpdatedAt(new \DateTime());
+        }
+        return $this;
+    }
+    
+    /**
+     * Returns the images.
      *
-     * @param Tag $tag
+     * @return SmartphoneImage[]
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Sets the document.
+     *
+     * @param Media\MediaInterface $document
      * @return Smartphone
      */
-    public function removeTag(Tag $tag)
+    public function setDocument(Media\MediaInterface $document = null)
     {
-        $this->tags->removeElement($tag);
-
+        $this->document = $document;
         return $this;
     }
 
     /**
-     * Get tags
+     * Returns the document.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Media\MediaInterface
      */
-    public function getTags()
+    public function getDocument()
     {
-        return $this->tags;
+        return $this->document;
     }
 
     /**
@@ -349,5 +356,29 @@ class Smartphone extends AbstractProduct implements ContentSubjectInterface, Seo
     public function getCharacteristics()
     {
         return $this->characteristics;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEntityTags()
+    {
+        $tags = [$this->getEntityTag()];
+        /*if (null !== $this->images) {
+
+        }*/
+        if (null !== $this->seo) {
+            $tags[] = $this->seo->getEntityTag();
+        }
+        // TODO Brand, Characteristics, Variants ...
+        return $tags;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getEntityTagPrefix()
+    {
+        return 'ekyna_demo.product';
     }
 }

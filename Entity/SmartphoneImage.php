@@ -2,21 +2,37 @@
 
 namespace Ekyna\Bundle\DemoBundle\Entity;
 
-use Ekyna\Bundle\CoreBundle\Entity\AbstractGalleryImage;
+use Ekyna\Bundle\MediaBundle\Model as Media;
+use Ekyna\Bundle\CoreBundle\Model as Core;
 
 /**
- * SmartphoneImage.
- *
+ * Class SmartphoneImage
+ * @package Ekyna\Bundle\DemoBundle\Entity
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class SmartphoneImage extends AbstractGalleryImage
+class SmartphoneImage implements Media\GalleryMediaInterface
 {
+    use Media\GalleryMediaTrait;
+
     /**
-     * The smartphone.
-     * 
+     * @var integer
+     */
+    protected $id;
+
+    /**
      * @var Smartphone
      */
     protected $smartphone;
+
+    /**
+     * Returns the id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Sets the smartphone.
@@ -27,7 +43,6 @@ class SmartphoneImage extends AbstractGalleryImage
     public function setSmartphone(Smartphone $smartphone = null)
     {
         $this->smartphone = $smartphone;
-
         return $this;
     }
 

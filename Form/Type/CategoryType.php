@@ -3,6 +3,7 @@
 namespace Ekyna\Bundle\DemoBundle\Form\Type;
 
 use Ekyna\Bundle\AdminBundle\Form\Type\ResourceFormType;
+use Ekyna\Bundle\MediaBundle\Model\MediaTypes;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityRepository;
 
@@ -23,7 +24,7 @@ class CategoryType extends ResourceFormType
                 'label' => 'ekyna_core.field.name',
                 'required' => true,
             ))
-            ->add('color', 'ekyna_core_color_picker', array(
+            ->add('color', 'ekyna_color_picker', array(
                 'label' => 'ekyna_core.field.color',
                 'required' => true,
             ))
@@ -40,22 +41,17 @@ class CategoryType extends ResourceFormType
                 'property' => 'name',
                 'required' => false,
             ))
-            ->add('image', 'ekyna_core_image', array(
+            ->add('media', 'ekyna_media_choice', array(
                 'label' => 'ekyna_core.field.image',
-                'data_class' => 'Ekyna\Bundle\DemoBundle\Entity\CategoryImage',
                 'required' => false,
-                'alt_field' => false,
-                'rename_field' => false,
+                'types' => MediaTypes::IMAGE,
             ))
             ->add('seo', 'ekyna_cms_seo', array(
                 'label' => false
             ))
-            ->add('html', 'textarea', array(
+            ->add('html', 'tinymce', array(
                 'label' => 'ekyna_core.field.content',
-                'attr' => array(
-            	    'class' => 'tinymce',
-                    'data-theme' => 'advanced',
-                )
+                'theme' => 'advanced',
             ))
         ;
     }

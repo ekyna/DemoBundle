@@ -25,7 +25,6 @@
             <gedmo:tree-level />
         </field>
 
-
         <field name="name" column="name" type="string" length="64" />
         <field name="color" column="color" type="string" length="32" />
         <field name="html" column="html" type="text" nullable="true" />
@@ -40,19 +39,6 @@
             <gedmo:timestampable on="update" />
         </field>
         <field name="deletedAt" column="deleted_at" type="datetime" nullable="true" />
-
-        <one-to-one field="image" target-entity="Ekyna\Bundle\DemoBundle\Entity\CategoryImage" mapped-by="category">
-            <cascade>
-                <cascade-all/>
-            </cascade>
-        </one-to-one>
-
-        <one-to-one field="seo" target-entity="Ekyna\Bundle\CmsBundle\Entity\Seo">
-            <cascade>
-                <cascade-all />
-            </cascade>
-            <join-column name="seo_id" referenced-column-name="id" />
-        </one-to-one>
 
         <one-to-many field="children" target-entity="Ekyna\Bundle\DemoBundle\Entity\Category" mapped-by="parent">
             <order-by>

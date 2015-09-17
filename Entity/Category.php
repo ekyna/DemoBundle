@@ -2,16 +2,23 @@
 
 namespace Ekyna\Bundle\DemoBundle\Entity;
 
-use Ekyna\Bundle\CmsBundle\Entity\Seo;
 use Doctrine\Common\Collections\ArrayCollection;
+use Ekyna\Bundle\CmsBundle\Entity\Seo;
+use Ekyna\Bundle\CmsBundle\Model as Cms;
+use Ekyna\Bundle\CoreBundle\Model as Core;
+use Ekyna\Bundle\MediaBundle\Model as Media;
 
 /**
  * Category.
  *
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class Category
+class Category implements Cms\SeoSubjectInterface, Media\MediaSubjectInterface, Core\TaggedEntityInterface
 {
+    use Cms\SeoSubjectTrait;
+    use Media\MediaSubjectTrait;
+    use Core\TaggedEntityTrait;
+
     /**
      * @var integer
      */
@@ -56,16 +63,6 @@ class Category
      * @var string
      */
     protected $slug;
-
-    /**
-     * @var CategoryImage
-     */
-    protected $image;
-
-    /**
-     * @var \Ekyna\Bundle\CmsBundle\Entity\Seo
-     */
-    protected $seo;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -306,53 +303,6 @@ class Category
     }
 
     /**
-     * Set image
-     *
-     * @param CategoryImage $image
-     * @return Category
-     */
-    public function setImage(CategoryImage $image = null)
-    {
-        $image->setCategory($this);
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return CategoryImage 
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Set seo
-     *
-     * @param \Ekyna\Bundle\CmsBundle\Entity\Seo $seo
-     * @return Category
-     */
-    public function setSeo(Seo $seo = null)
-    {
-        $this->seo = $seo;
-
-        return $this;
-    }
-
-    /**
-     * Get seo
-     *
-     * @return \Ekyna\Bundle\CmsBundle\Entity\Seo 
-     */
-    public function getSeo()
-    {
-        return $this->seo;
-    }
-
-    /**
      * Add children
      *
      * @param Category $children
@@ -475,5 +425,31 @@ class Category
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEntityTags()
+    {
+        $tags = [$this->getEntityTag()];
+        if (null !== $this->media) {
+            $tags[] = $this->media->getEntityTag();
+        }
+        if (null !== $this->media) {
+            $tags[] = $this->media->getEntityTag();
+        }
+        if (null !== $this->seo) {
+            $tags[] = $this->seo->getEntityTag();
+        }
+        return $tags;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getEntityTagPrefix()
+    {
+        return 'ekyna_demo.category';
     }
 }

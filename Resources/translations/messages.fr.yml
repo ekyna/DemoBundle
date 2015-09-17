@@ -20,7 +20,7 @@ ekyna_demo:
             edit: Modifier la catégorie
             remove: Supprimer la catégorie
         alert:
-            no_category: Aucune catégorie configuré
+            empty_list: Aucune catégorie configuré
     smartphone:
         label:
             singular: Smartphone
@@ -40,7 +40,7 @@ ekyna_demo:
             edit_characteristics: Modifier les caractéristiques
             remove: Supprimer le smartphone
         alert:
-            no_smartphone: Aucun smartphone configuré
+            empty_list: Aucun smartphone configuré
     smartphoneVariant:
         label:
             singular: Variante
@@ -58,25 +58,7 @@ ekyna_demo:
             edit: Modifier la variante
             remove: Supprimer la variante
         alert:
-            no_smartphoneVariant: Aucune variante configuré
-    tag:
-        label:
-            singular: Tag
-            plural: Tags
-        header:
-            list: Tags <small>Liste des tags</small>
-            show: Détail du tag <small>%name%</small>
-            new: Créer un nouveau tag
-            edit: Modifier le tag <small>%name%</small>
-            remove: Supprimer le tag <small>%name%</small>
-        button:
-            list: Liste des tags
-            show: Détail du tag
-            new: Nouveau tag
-            edit: Modifier le tag
-            remove: Supprimer le tag
-        alert:
-            no_tag: Aucun tag configuré
+            empty_list: Aucune variante configuré
     brand:
         label:
             singular: Marque
@@ -94,4 +76,22 @@ ekyna_demo:
             edit: Modifier la marque
             remove: Supprimer la marque
         alert:
-            no_brand: Aucune marque configuré
+            empty_list: Aucune marque configuré
+    store:
+        label:
+            singular: Point de vente
+            plural: Points de vente
+        header:
+            list: Points de vente <small>Liste des points de vente</small>
+            show: Détail du point de vente <small>%name%</small>
+            new: Créer un nouveau point de vente
+            edit: Modifier le point de vente <small>%name%</small>
+            remove: Supprimer le point de vente <small>%name%</small>
+        button:
+            list: Liste des points de vente
+            show: Détail du point de vente
+            new: Nouveau point de vente
+            edit: Modifier le point de vente
+            remove: Supprimer le point de vente
+        alert:
+            no_item: Aucun point de vente configuré

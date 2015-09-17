@@ -13,11 +13,11 @@
 
         <field name="title" type="string" column="title" length="255"/>
 
-        <one-to-one field="seo" target-entity="Ekyna\Bundle\CmsBundle\Entity\Seo">
+        <one-to-one field="image" target-entity="Ekyna\Bundle\DemoBundle\Entity\BrandImage" orphan-removal="true">
             <cascade>
                 <cascade-all />
             </cascade>
-            <join-column name="seo_id" referenced-column-name="id" />
+            <join-column name="image_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
         </one-to-one>
 
     </entity>

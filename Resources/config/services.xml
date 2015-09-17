@@ -1,5 +1,4 @@
-<?xml version="1.0" ?>
-
+<?xml version="1.0" encoding="UTF-8" ?>
 <container
     xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -25,9 +24,16 @@
 
         <!-- Product Search --> 
         <service id="ekyna_demo.smartphone.search" class="%ekyna_demo.smartphone.search.class%">
-            <argument type="service" id="ekyna_demo.smartphone.repository" />
+            <argument id="ekyna_demo.smartphone.repository" type="service" />
             <argument>6</argument>
         </service>
+
+        <!-- Order item provider -->
+        <service id="ekyna_demo.order.order_item_provider" class="Ekyna\Bundle\DemoBundle\Order\OrderItemProvider">
+            <argument id="ekyna_demo.smartphone.repository" type="service" />
+            <tag name="ekyna_order.item_provider" />
+        </service>
+
     </services>
 
 </container>

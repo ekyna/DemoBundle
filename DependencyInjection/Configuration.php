@@ -7,8 +7,8 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 /**
- * Configuration
- *
+ * Class Configuration
+ * @package Ekyna\Bundle\DemoBundle\DependencyInjection
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
 class Configuration implements ConfigurationInterface
@@ -42,7 +42,7 @@ class Configuration implements ConfigurationInterface
                             ->isRequired()
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('templates')->defaultValue('EkynaDemoBundle:Category/Admin')->end()
+                                ->variableNode('templates')->defaultValue('EkynaDemoBundle:Admin/Category')->end()
                                 ->scalarNode('parent')->end()
                                 ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\Category')->end()
                                 ->scalarNode('controller')->defaultValue('Ekyna\Bundle\DemoBundle\Controller\Admin\CategoryController')->end()
@@ -55,7 +55,10 @@ class Configuration implements ConfigurationInterface
                             ->isRequired()
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('templates')->defaultValue('EkynaDemoBundle:Brand/Admin')->end()
+                                ->variableNode('templates')->defaultValue(array(
+                                    '_form.html' => 'EkynaDemoBundle:Admin/Brand:_form.html',
+                                    'show.html'  => 'EkynaDemoBundle:Admin/Brand:show.html',
+                                ))->end()
                                 ->scalarNode('parent')->end()
                                 ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\Brand')->end()
                                 ->scalarNode('controller')->end()
@@ -64,28 +67,15 @@ class Configuration implements ConfigurationInterface
                                 ->scalarNode('table')->defaultValue('Ekyna\Bundle\DemoBundle\Table\Type\BrandType')->end()
                             ->end()
                         ->end()
-                        ->arrayNode('tag')
-                            ->isRequired()
-                            ->addDefaultsIfNotSet()
-                            ->children()
-                                ->scalarNode('templates')->defaultValue('EkynaDemoBundle:Tag/Admin')->end()
-                                ->scalarNode('parent')->end()
-                                ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\Tag')->end()
-                                ->scalarNode('controller')->end()
-                                ->scalarNode('repository')->end()
-                                ->scalarNode('form')->defaultValue('Ekyna\Bundle\DemoBundle\Form\Type\TagType')->end()
-                                ->scalarNode('table')->defaultValue('Ekyna\Bundle\DemoBundle\Table\Type\TagType')->end()
-                            ->end()
-                        ->end()
                         ->arrayNode('smartphone')
                             ->isRequired()
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('templates')->defaultValue('EkynaDemoBundle:Smartphone/Admin')->end()
+                                ->variableNode('templates')->defaultValue('EkynaDemoBundle:Admin/Smartphone')->end()
                                 ->scalarNode('parent')->end()
                                 ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\Smartphone')->end()
                                 ->scalarNode('controller')->defaultValue('Ekyna\Bundle\DemoBundle\Controller\Admin\SmartphoneController')->end()
-                                ->scalarNode('repository')->end()
+                                ->scalarNode('repository')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\SmartphoneRepository')->end()
                                 ->scalarNode('form')->defaultValue('Ekyna\Bundle\DemoBundle\Form\Type\SmartphoneType')->end()
                                 ->scalarNode('table')->defaultValue('Ekyna\Bundle\DemoBundle\Table\Type\SmartphoneType')->end()
                             ->end()
@@ -94,13 +84,29 @@ class Configuration implements ConfigurationInterface
                             ->isRequired()
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('templates')->defaultValue('EkynaDemoBundle:SmartphoneVariant/Admin')->end()
+                                ->variableNode('templates')->defaultValue('EkynaDemoBundle:Admin/SmartphoneVariant')->end()
                                 ->scalarNode('parent')->defaultValue('ekyna_demo.smartphone')->end()
                                 ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\SmartphoneVariant')->end()
                                 ->scalarNode('controller')->end()
                                 ->scalarNode('repository')->end()
                                 ->scalarNode('form')->defaultValue('Ekyna\Bundle\DemoBundle\Form\Type\SmartphoneVariantType')->end()
                                 ->scalarNode('table')->defaultValue('Ekyna\Bundle\DemoBundle\Table\Type\SmartphoneVariantType')->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('store')
+                            ->isRequired()
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->variableNode('templates')->defaultValue(array(
+                                    '_form.html' => 'EkynaDemoBundle:Admin/Store:_form.html',
+                                    'show.html'  => 'EkynaDemoBundle:Admin/Store:show.html',
+                                ))->end()
+                                ->scalarNode('parent')->end()
+                                ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\Store')->end()
+                                ->scalarNode('controller')->end()
+                                ->scalarNode('repository')->end()
+                                ->scalarNode('form')->defaultValue('Ekyna\Bundle\DemoBundle\Form\Type\StoreType')->end()
+                                ->scalarNode('table')->defaultValue('Ekyna\Bundle\DemoBundle\Table\Type\StoreType')->end()
                             ->end()
                         ->end()
                     ->end()

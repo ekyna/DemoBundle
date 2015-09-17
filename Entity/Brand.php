@@ -2,18 +2,20 @@
 
 namespace Ekyna\Bundle\DemoBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Ekyna\Bundle\CmsBundle\Entity\Seo;
 use Ekyna\Bundle\CmsBundle\Model\ContentSubjectInterface;
 use Ekyna\Bundle\CmsBundle\Model\ContentSubjectTrait;
+use Ekyna\Bundle\CmsBundle\Model\SeoSubjectInterface;
+use Ekyna\Bundle\CmsBundle\Model\SeoSubjectTrait;
 
 /**
  * Brand
  */
-class Brand implements ContentSubjectInterface
+class Brand implements ContentSubjectInterface, SeoSubjectInterface
 {
     use ContentSubjectTrait;
+    use SeoSubjectTrait;
 
     /**
      * @var integer
@@ -26,14 +28,14 @@ class Brand implements ContentSubjectInterface
     private $title;
 
     /**
-     * @var \Ekyna\Bundle\CmsBundle\Entity\Seo
+     * @var BrandImage
      */
-    private $seo;
+    private $image;
+
 
     public function __construct()
     {
         $this->seo = new Seo();
-        $this->contents = new ArrayCollection();
     }
 
     /**
@@ -78,25 +80,24 @@ class Brand implements ContentSubjectInterface
     }
 
     /**
-     * Set seo
+     * Sets the image.
      *
-     * @param \Ekyna\Bundle\CmsBundle\Entity\Seo $seo
+     * @param BrandImage $image
      * @return Brand
      */
-    public function setSeo(Seo $seo)
+    public function setImage(BrandImage $image = null)
     {
-        $this->seo = $seo;
-
+        $this->image = $image;
         return $this;
     }
 
     /**
-     * Get seo
+     * Returns the image.
      *
-     * @return \Ekyna\Bundle\CmsBundle\Entity\Seo
+     * @return BrandImage
      */
-    public function getSeo()
+    public function getImage()
     {
-        return $this->seo;
+        return $this->image;
     }
 }

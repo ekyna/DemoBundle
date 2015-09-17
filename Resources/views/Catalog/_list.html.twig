@@ -3,14 +3,14 @@
 </div>
 {% for product in products %}
 {% spaceless %}
-{% set product_path = path('ekyna_catalog_product', {'categorySlug': product.category.slug, 'productSlug': product.slug}) %}
+{% set product_path = path('ekyna_demo_catalog_product', {'categorySlug': product.category.slug, 'productSlug': product.slug}) %}
 <div class="product-thumb">
 	<div class="row">
 	    <div class="col-sm-3">
 	        <a class="thumbnail" href="{{ product_path }}">
 		        {% if product.images|length > 0 %}
 		        {% set thumb = product.images[0] %}
-				<img alt="{{ thumb.alt }}" height="142" src="{{ thumb.path|imagine_filter('product_thumb') }}" width="190" />
+				<img alt="{{ thumb.media.title }}" height="142" src="{{ thumb.media.path|imagine_filter('product_thumb') }}" width="190" />
 		        {% else %}
 			    <img alt="Visuel à venir" height="142" src="http://placehold.it/190x142/f7f7f7/6e829b&text=Visuel+à+venir" width="190" />
 		        {% endif %}

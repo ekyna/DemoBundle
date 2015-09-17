@@ -16,9 +16,9 @@ class CategoryType extends ResourceTableType
     /**
      * {@inheritdoc}
      */
-    public function buildTable(TableBuilderInterface $tableBuilder)
+    public function buildTable(TableBuilderInterface $builder, array $options)
     {
-        $tableBuilder
+        $builder
             ->addColumn('name', 'nested_anchor', array(
                 'label' => 'ekyna_core.field.name',
                 'route_name' => 'ekyna_demo_category_admin_show',
@@ -30,7 +30,7 @@ class CategoryType extends ResourceTableType
                 'label' => 'ekyna_core.field.title',
             ))
             ->addColumn('createdAt', 'datetime', array(
-                'label' => 'ekyna_core.field.add_date',
+                'label' => 'ekyna_core.field.created_at',
             ))
             ->addColumn('actions', 'admin_nested_actions', array(
                 'new_child_route' => 'ekyna_demo_category_admin_new_child',

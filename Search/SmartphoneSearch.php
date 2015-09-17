@@ -8,8 +8,8 @@ use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 
 /**
- * SmartphoneSearch.
- *
+ * Class SmartphoneSearch
+ * @package Ekyna\Bundle\DemoBundle\Search
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
 class SmartphoneSearch
@@ -39,10 +39,12 @@ class SmartphoneSearch
      */
     private $page;
 
+
     /**
-     * Constructor
-     * 
-     * @param \Doctrine\ORM\EntityRepository $repository
+     * Constructor.
+     *
+     * @param EntityRepository $repository
+     * @param int $defaultLimit
      */
     public function __construct(EntityRepository $repository, $defaultLimit = 6)
     {
@@ -82,7 +84,7 @@ class SmartphoneSearch
     /**
      * Clear search parameters
      * 
-     * @return ProductSearch
+     * @return SmartphoneSearch
      */
     public function clear()
     {
@@ -97,7 +99,7 @@ class SmartphoneSearch
 	 * Sets the category
 	 * 
      * @param \Ekyna\Bundle\DemoBundle\Entity\Category $category
-     * @return ProductSearch
+     * @return SmartphoneSearch
      */
     public function setCategory(Category $category = null)
     {
@@ -110,7 +112,7 @@ class SmartphoneSearch
 	 * Sets the limit
 	 * 
      * @param number $limit
-     * @return ProductSearch
+     * @return SmartphoneSearch
      */
     public function setLimit($limit)
     {
@@ -123,7 +125,7 @@ class SmartphoneSearch
 	 * Sets the page
 	 * 
      * @param number $page
-     * @return ProductSearch
+     * @return SmartphoneSearch
      */
     public function setPage($page)
     {

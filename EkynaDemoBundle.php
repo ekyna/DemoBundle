@@ -7,8 +7,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Ekyna\Bundle\DemoBundle\DependencyInjection\Compiler\AdminMenuPass;
 
 /**
- * EkynaDemoBundle
- *
+ * Class EkynaDemoBundle
+ * @package Ekyna\Bundle\DemoBundle
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
 class EkynaDemoBundle extends Bundle

@@ -22,6 +22,12 @@ class BrandType extends ResourceFormType
                 'label' => 'ekyna_core.field.title',
                 'required' => true,
             ))
+            ->add('image', 'ekyna_upload', array(
+                'label' => 'ekyna_core.field.image',
+                'data_class' => 'Ekyna\Bundle\DemoBundle\Entity\BrandImage',
+                'js_upload' => false,
+                'required' => false
+            ))
             ->add('seo', 'ekyna_cms_seo', array(
                 'label' => false
             ))

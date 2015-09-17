@@ -11,23 +11,23 @@
         "MIT"
     ],
     "require" : {
-        "ekyna/cms-bundle" : "0.1.*@dev",
-        "ekyna/product-bundle" : "0.1.*@dev",
-        "ekyna/characteristics-bundle" : "0.1.*@dev"
+        "ekyna/cms-bundle" : "0.3.*@dev",
+        "ekyna/order-bundle" : "0.3.*@dev",
+        "ekyna/product-bundle" : "0.3.*@dev",
+        "ekyna/characteristics-bundle" : "0.3.*@dev"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "fzaninotto/faker": "1.4.*"
     },
     "autoload" : {
-        "psr-0" : {
-            "Ekyna\\Bundle\\DemoBundle" : ""
+        "psr-4" : {
+            "Ekyna\\Bundle\\DemoBundle\\" : ""
         }
     },
-    "target-dir" : "Ekyna/Bundle/DemoBundle",
     "extra" : {
         "branch-alias" : {
-            "dev-master" : "0.1.x-dev"
+            "dev-master" : "0.3.x-dev"
         }
     }
 }

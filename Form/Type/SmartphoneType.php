@@ -2,6 +2,7 @@
 
 namespace Ekyna\Bundle\DemoBundle\Form\Type;
 
+use Ekyna\Bundle\MediaBundle\Model\MediaTypes;
 use Symfony\Component\Form\FormBuilderInterface;
 use Ekyna\Bundle\ProductBundle\Form\Type\AbstractProductType;
 
@@ -45,45 +46,24 @@ class SmartphoneType extends AbstractProductType
                     'placeholder' => 'ekyna_core.field.brand',
                 ),
             ))
-            ->add('html', 'textarea', array(
+            ->add('html', 'tinymce', array(
                 'label' => 'ekyna_core.field.content',
-                'attr' => array(
-            	    'class' => 'tinymce',
-                    'data-theme' => 'advanced',
-                )
+                'theme' => 'advanced',
             ))
             ->add('releasedAt', 'datetime', array(
                 'label' => 'Released At',
             ))
-            ->add('tags', 'ekyna_resource', array(
-                'label' => 'ekyna_core.field.tags',
-                'class' => 'Ekyna\Bundle\DemoBundle\Entity\Tag',
-                'multiple' => true,
-                'property' => 'name',
-                'allow_new' => $options['admin_mode'],
-                'allow_list' => $options['admin_mode'],
-                'empty_value' => 'ekyna_core.field.tags',
-                'attr' => array(
-            	    'placeholder' => 'ekyna_core.field.tags',
-                ),
-            ))
-            ->add('images', 'collection', array(
-                'label'        => 'ekyna_core.field.images',
-                'type'         => 'ekyna_core_gallery_image',
-                'allow_add'    => true,
-                'allow_delete' => true,
-                'by_reference' => false,
-                'options'      => array(
-                    'label' => false,
-                    'required' => false,
-                    'attr' => array(
-                        'widget_col' => 12
-                    ),
-                    'image_path' => 'path',
-                    'data_class' => 'Ekyna\Bundle\DemoBundle\Entity\SmartphoneImage',
-                )
-            ))
+            ->add('tags', 'ekyna_cms_tags')
             ->add('characteristics', 'ekyna_characteristics')
+            ->add('images', 'ekyna_media_collection', array(
+                'label' => 'ekyna_core.field.images',
+                'media_class' => 'Ekyna\Bundle\DemoBundle\Entity\SmartphoneImage',
+                'types' => array(MediaTypes::IMAGE),
+            ))
+            ->add('document', 'ekyna_media_choice', array(
+                'label' => 'ekyna_core.field.document',
+                'types' => array(MediaTypes::FILE),
+            ))
             ->add('seo', 'ekyna_cms_seo', array(
                 'label' => false
             ))

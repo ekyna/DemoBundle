@@ -4,14 +4,13 @@ namespace Ekyna\Bundle\DemoBundle\DependencyInjection;
 
 use Ekyna\Bundle\AdminBundle\DependencyInjection\AbstractExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
 /**
- * EkynaDemoExtension
- *
+ * Class EkynaDemoExtension
+ * @package Ekyna\Bundle\DemoBundle\DependencyInjection
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class EkynaDemoExtension extends AbstractExtension implements PrependExtensionInterface
+class EkynaDemoExtension extends AbstractExtension
 {
     /**
      * {@inheritDoc}
@@ -26,28 +25,14 @@ class EkynaDemoExtension extends AbstractExtension implements PrependExtensionIn
      */
     public function prepend(ContainerBuilder $container)
     {
-        $bundles = $container->getParameter('kernel.bundles');
-        $config = array(
-            'bundles' => array('EkynaDemoBundle')
-        );
-        if (true === isset($bundles['AsseticBundle'])) {
-            $this->configureAsseticBundle($container, $config);
-        }
-    }
+        parent::prepend($container);
 
-    /**
-     * @param ContainerBuilder $container
-     * @param array            $config
-     *
-     * @return void
-     */
-    protected function configureAsseticBundle(ContainerBuilder $container, array $config)
-    {
-        foreach (array_keys($container->getExtensions()) as $name) {
-            if ($name == 'assetic') {
-                $container->prependExtensionConfig($name, $config);
-                break;
-            }
+        $bundles = $container->getParameter('kernel.bundles');
+
+        if (array_key_exists('AsseticBundle', $bundles)) {
+            $container->prependExtensionConfig('assetic', array(
+                'bundles' => array('EkynaDemoBundle')
+            ));
         }
     }
 }

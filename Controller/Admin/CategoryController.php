@@ -7,8 +7,8 @@ use Ekyna\Bundle\AdminBundle\Controller\Resource\NestedTrait;
 use Ekyna\Bundle\AdminBundle\Controller\Resource\TinymceTrait;
 
 /**
- * CategoryController.
- *
+ * Class CategoryController
+ * @package Ekyna\Bundle\DemoBundle\Controller\Admin
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
 class CategoryController extends ResourceController

@@ -2,20 +2,18 @@
 
 namespace Ekyna\Bundle\DemoBundle\Entity;
 
+use Ekyna\Bundle\AdminBundle\Doctrine\ORM\ResourceRepositoryInterface;
+use Ekyna\Bundle\AdminBundle\Doctrine\ORM\Util\ResourceRepositoryTrait;
 use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
 
 /**
- * CategoryRepository.
- * 
+ * Class CategoryRepository
+ * @package Ekyna\Bundle\DemoBundle\Entity
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class CategoryRepository extends NestedTreeRepository
+class CategoryRepository extends NestedTreeRepository implements ResourceRepositoryInterface
 {
-    public function createNew()
-    {
-        $class = $this->getClassName();
-        return new $class;
-    }
+    use ResourceRepositoryTrait;
 
     public function findBySlug($categorySlug)
     {
