@@ -25,7 +25,7 @@ class TestCommand extends ContainerAwareCommand
         $cacheManager = $this->getContainer()->get('fos_http_cache.cache_manager');
 
         $cacheManager
-            ->invalidateTags(array('demo_test.home[id:2]', 'test-part-one', 'test-part-two'))
+            ->invalidateTags(['demo_test.home[id:2]', 'test-part-one', 'test-part-two'])
             ->flush()
         ;
     }

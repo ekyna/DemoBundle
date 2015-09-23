@@ -18,16 +18,16 @@ class StoreType extends ResourceTableType
     public function buildTable(TableBuilderInterface $builder, array $options)
     {
         $builder
-            ->addColumn('name', 'anchor', array(
+            ->addColumn('name', 'anchor', [
                 'label' => 'ekyna_core.field.name',
                 'route_name' => 'ekyna_demo_store_admin_show',
-                'route_parameters_map' => array(
+                'route_parameters_map' => [
                     'storeId' => 'id'
-                ),
-            ))
-            ->addColumn('country', 'country', array(
+                ],
+            ])
+            ->addColumn('country', 'country', [
                 'label' => 'ekyna_core.field.country',
-            ))
+            ])
             /*->addColumn('enabled', 'boolean', array(
                 'label' => 'ekyna_core.field.enabled',
                 'route_name' => 'ekyna_demo_store_admin_toggle',
@@ -35,39 +35,39 @@ class StoreType extends ResourceTableType
                     'storeId' => 'id',
                 ),
             ))*/
-            ->addColumn('actions', 'admin_actions', array(
-                'buttons' => array(
-                    array(
+            ->addColumn('actions', 'admin_actions', [
+                'buttons' => [
+                    [
                         'label' => 'ekyna_core.button.edit',
                         'icon' => 'pencil',
                         'class' => 'warning',
                         'route_name' => 'ekyna_demo_store_admin_edit',
-                        'route_parameters_map' => array(
+                        'route_parameters_map' => [
                             'storeId' => 'id'
-                        ),
+                        ],
                         'permission' => 'edit',
-                    ),
-                    array(
+                    ],
+                    [
                         'label' => 'ekyna_core.button.remove',
                         'icon' => 'trash',
                         'class' => 'danger',
                         'route_name' => 'ekyna_demo_store_admin_remove',
-                        'route_parameters_map' => array(
+                        'route_parameters_map' => [
                             'storeId' => 'id'
-                        ),
+                        ],
                         'permission' => 'delete',
-                    ),
-                ),
-            ))
-            ->addFilter('name', 'text', array(
+                    ],
+                ],
+            ])
+            ->addFilter('name', 'text', [
                 'label' => 'ekyna_core.field.name',
-            ))
-            ->addFilter('country', 'country', array(
+            ])
+            ->addFilter('country', 'country', [
                 'label' => 'ekyna_core.field.country',
-            ))
-            ->addFilter('enabled', 'boolean', array(
+            ])
+            ->addFilter('enabled', 'boolean', [
                 'label' => 'ekyna_core.field.validated',
-            ))
+            ])
         ;
     }
 

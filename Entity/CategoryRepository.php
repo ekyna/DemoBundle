@@ -22,7 +22,7 @@ class CategoryRepository extends NestedTreeRepository implements ResourceReposit
         $slugs = explode('/', trim($categorySlug, '/'));
         if (count($slugs) > 0) {
             $slugs = array_reverse($slugs);
-            if (null !== $category = $this->findOneBy(array('slug' => array_shift($slugs)))) {
+            if (null !== $category = $this->findOneBy(['slug' => array_shift($slugs)])) {
                 $parent = $category;
                 while(count($slugs) > 0) {
                     if($parent->getSlug() !== array_shift($slugs)) {

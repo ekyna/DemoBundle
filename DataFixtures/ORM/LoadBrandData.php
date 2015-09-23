@@ -3,7 +3,6 @@
 namespace Ekyna\Bundle\DemoBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Ekyna\Bundle\MediaBundle\Model\MediaTypes;
 
 /**
  * Class LoadBrandData

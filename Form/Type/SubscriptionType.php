@@ -12,22 +12,28 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class SubscriptionType extends AbstractOptionType
 {
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('duration', 'integer', array(
+            ->add('duration', 'integer', [
                 'label' => 'ekyna_core.field.duration',
-                'attr' => array(
+                'attr' => [
                     'label_col' => 4,
                     'widget_col' => 8,
                     'min' => 1,
-                )
-            ))
+                ]
+            ])
         ;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
     	return 'ekyna_demo_subscription';

@@ -1,4 +1,5 @@
 ekyna_demo:
+    catalog: Catalogue
     subscription:
         singular: Abonnement
         plural: Abonnements

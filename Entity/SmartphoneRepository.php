@@ -11,9 +11,4 @@ use Ekyna\Bundle\AdminBundle\Doctrine\ORM\ResourceRepository;
  */
 class SmartphoneRepository extends ResourceRepository
 {
-    public function createNew()
-    {
-        $class = $this->getClassName();
-        return new $class;
-    }
 }

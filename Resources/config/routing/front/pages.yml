@@ -1,20 +1,18 @@
 home:
-    pattern: /
+    path: ""
     defaults:
         _controller: EkynaDemoBundle:Page:home
-    requirements:
-        _method: GET
+    methods: [GET]
     options:
         _cms:
             name: Accueil
             menus: [footer]
 
 about:
-    pattern: /a-propos
+    path: /a-propos
     defaults:
         _controller: EkynaDemoBundle:Page:default
-    requirements:
-        _method: GET
+    methods: [GET]
     options:
         _cms:
             name: À propos
@@ -26,8 +24,7 @@ case_studies:
     path: /a-propos/etude-de-cas
     defaults:
         _controller: EkynaDemoBundle:Page:default
-    requirements:
-        _method: GET
+    methods: [GET]
     options:
         _cms:
             name: Étude de cas
@@ -40,8 +37,7 @@ expertise:
     path: /a-propos/expertise
     defaults:
         _controller: EkynaDemoBundle:Page:default
-    requirements:
-        _method: GET
+    methods: [GET]
     options:
         _cms:
             name: Expertise
@@ -51,11 +47,10 @@ expertise:
             advanced: true
 
 contact:
-    pattern: /contact
+    path: /contact
     defaults:
         _controller: EkynaDemoBundle:Page:contact
-    requirements:
-        _method: GET|POST
+    methods: [GET|POST]
     options:
         _cms:
             name: Contact

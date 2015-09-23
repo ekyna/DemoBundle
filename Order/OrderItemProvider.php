@@ -51,9 +51,9 @@ class OrderItemProvider extends AbstractItemProvider
             ->setTax($subject->getTax())
             ->setWeight($subject->getWeight())
             ->setSubjectType($this->getName())
-            ->setSubjectData(array(
+            ->setSubjectData([
                 'id' => $subject->getId()
-            ))
+            ])
             ->setSubject($subject)
         ;
 
@@ -84,7 +84,7 @@ class OrderItemProvider extends AbstractItemProvider
             throw new InvalidItemException('Unsupported order item.');
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -101,10 +101,10 @@ class OrderItemProvider extends AbstractItemProvider
             throw new InvalidSubjectException('Ekyna\Bundle\DemoBundle\Entity\Smartphone');
         }
 
-        return $this->urlGenerator->generate('ekyna_demo_catalog_product', array(
+        return $this->urlGenerator->generate('ekyna_demo_catalog_product', [
             'categorySlug' => $smartphone->getCategory()->getSlug(),
             'productSlug'  => $smartphone->getSlug(),
-        ));
+        ]);
     }
 
     /**
@@ -120,9 +120,9 @@ class OrderItemProvider extends AbstractItemProvider
             throw new InvalidSubjectException('Ekyna\Bundle\DemoBundle\Entity\Smartphone');
         }
 
-        return $this->urlGenerator->generate('ekyna_demo_smartphone_admin_show', array(
+        return $this->urlGenerator->generate('ekyna_demo_smartphone_admin_show', [
             'smartphoneId'  => $smartphone->getId(),
-        ));
+        ]);
     }
 
     /**

@@ -1,66 +1,63 @@
 ekyna_demo_category_admin_home:
-    path: /
+    path: ""
     defaults: { _controller: "ekyna_demo.category.controller:homeAction" }
-    requirements:
-        _method: GET
+    methods: [GET]
 
 ekyna_demo_category_admin_list:
     path: /list
     defaults: { _controller: "ekyna_demo.category.controller:listAction" }
-    requirements:
-        _method: GET|POST
+    methods: [GET|POST]
 
 ekyna_demo_category_admin_new:
     path: /new
     defaults: { _controller: "ekyna_demo.category.controller:newAction" }
-    requirements:
-        _method: GET|POST
+    methods: [GET|POST]
 
 ekyna_demo_category_admin_new_child:
     path: /{categoryId}/new-child
     defaults: { _controller: "ekyna_demo.category.controller:newChildAction" }
+    methods: [GET|POST]
     requirements:
-        _method: GET|POST
-        categoryId:  \d+
+        categoryId: \d+
 
 ekyna_demo_category_admin_show:
     path: /{categoryId}/show
     defaults: { _controller: "ekyna_demo.category.controller:showAction" }
+    methods: [GET]
     requirements:
-        _method: GET
-        categoryId:  \d+
+        categoryId: \d+
 
 ekyna_demo_category_admin_edit:
     path: /{categoryId}/edit
     defaults: { _controller: "ekyna_demo.category.controller:editAction" }
+    methods: [GET|POST]
     requirements:
-        _method: GET|POST
-        categoryId:  \d+
+        categoryId: \d+
 
 ekyna_demo_category_admin_tinymce:
     path: /{categoryId}/tinymce
     defaults: { _controller: "ekyna_demo.category.controller:tinymceAction", field: html }
+    methods: [GET]
     requirements:
-        _method: GET
-        categoryId:  \d+
+        categoryId: \d+
 
 ekyna_demo_category_admin_move_up:
     path: /{categoryId}/moveup
     defaults: { _controller: "ekyna_demo.category.controller:moveUpAction" }
+    methods: [GET]
     requirements:
-        _method: GET
-        categoryId:  \d+
+        categoryId: \d+
 
 ekyna_demo_category_admin_move_down:
     path: /{categoryId}/movedown
     defaults: { _controller: "ekyna_demo.category.controller:moveDownAction" }
+    methods: [GET]
     requirements:
-        _method: GET
-        categoryId:  \d+
+        categoryId: \d+
 
 ekyna_demo_category_admin_remove:
     path: /{categoryId}/remove
     defaults: { _controller: "ekyna_demo.category.controller:removeAction" }
+    methods: [GET|POST]
     requirements:
-        _method: GET|POST
-        categoryId:  \d+
+        categoryId: \d+

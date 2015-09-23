@@ -23,9 +23,9 @@ class CatalogController extends Controller
 
         // TODO knp_menu
 
-        $response = $this->render('EkynaDemoBundle:Catalog:side_menu.html.twig', array(
+        $response = $this->render('EkynaDemoBundle:Catalog:side_menu.html.twig', [
             'categories' => $categories
-        ));
+        ]);
 
         $tags = [Category::getEntityTagPrefix()];
         foreach ($categories as $category) {
@@ -49,9 +49,9 @@ class CatalogController extends Controller
             ->findProducts()
         ;
 
-        $response = $this->render('EkynaDemoBundle:Catalog:index.html.twig', array(
+        $response = $this->render('EkynaDemoBundle:Catalog:index.html.twig', [
             'products' => $products
-        ));
+        ]);
 
         $tags = [Smartphone::getEntityTagPrefix()];
         foreach ($products as $product) {
@@ -75,7 +75,7 @@ class CatalogController extends Controller
             'category-'.$category->getId(),
             $category,
             'ekyna_demo_catalog_category',
-            array('categorySlug' => $category->getSlug())
+            ['categorySlug' => $category->getSlug()]
         );
 
         /** @var Smartphone[] $products */
@@ -85,10 +85,10 @@ class CatalogController extends Controller
             ->findProducts()
         ;
 
-        $response = $this->render('EkynaDemoBundle:Catalog:category.html.twig', array(
+        $response = $this->render('EkynaDemoBundle:Catalog:category.html.twig', [
             'category' => $category,
             'products' => $products
-        ));
+        ]);
 
         $tags = [Category::getEntityTagPrefix(), Smartphone::getEntityTagPrefix()];
         $tags = array_merge($tags, $category->getEntityTags());
@@ -119,17 +119,17 @@ class CatalogController extends Controller
             'product-'.$product->getId(),
             (string) $product,
             'ekyna_demo_catalog_product',
-            array(
+            [
                 'categorySlug' => $category->getSlug(),
                 'productSlug' => $product->getSlug(),
-            )
+            ]
         );
 
-        $data = array(
+        $data = [
             'product' => $product,
             'quantity' => 1,
             // TODO options
-        );
+        ];
 
         $form = $this->createForm('ekyna_product_add_to_order', $data);
         $form->handleRequest($request);
@@ -141,30 +141,30 @@ class CatalogController extends Controller
                     ->addSubject($cart, $data['product'], $data['quantity'])
                 ;
                 if (!$event->isPropagationStopped()) {
-                    $this->addFlash($this->getTranslator()->trans('ekyna_cart.message.item_add.success', array(
+                    $this->addFlash($this->getTranslator()->trans('ekyna_cart.message.item_add.success', [
                         '{{ name }}' => $product->getDesignation(),
                         '{{ path }}' => $this->generateUrl('ekyna_cart_index'),
-                    )), 'success');
-                    return $this->redirect($this->generateUrl('ekyna_demo_catalog_product', array(
+                    ]), 'success');
+                    return $this->redirect($this->generateUrl('ekyna_demo_catalog_product', [
                         'categorySlug' => $product->getCategory()->getSlug(),
                         'productSlug' => $product->getSlug(),
-                    )));
+                    ]));
                 }
             } catch(OrderException $e) {
                 if ($this->container->getParameter('kernel.debug')) {
                     throw $e;
                 }
             }
-            $this->addFlash($this->getTranslator()->trans('ekyna_cart.message.item_add.failure', array(
+            $this->addFlash($this->getTranslator()->trans('ekyna_cart.message.item_add.failure', [
                 '{{ name }}' => $product->getDesignation(),
                 '{{ path }}' => $this->generateUrl('ekyna_cart_index'),
-            )), 'danger');
+            ]), 'danger');
         }
 
-        $response = $this->render('EkynaDemoBundle:Catalog:product.html.twig', array(
+        $response = $this->render('EkynaDemoBundle:Catalog:product.html.twig', [
             'product' => $product,
             'form' => $form->createView()
-        ));
+        ]);
 
         return $this->configureSharedCache($response, $product->getEntityTags());
     }
@@ -196,7 +196,7 @@ class CatalogController extends Controller
     {
         $productSlug = $request->attributes->get('productSlug');
 
-        if(null === $product = $this->get('ekyna_demo.smartphone.repository')->findOneBy(array('slug' => $productSlug))) {
+        if(null === $product = $this->get('ekyna_demo.smartphone.repository')->findOneBy(['slug' => $productSlug])) {
             throw new NotFoundHttpException('Product not found.');
         }
 

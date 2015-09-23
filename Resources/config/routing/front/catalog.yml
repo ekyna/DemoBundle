@@ -1,9 +1,8 @@
 ekyna_demo_catalog_index:
-    pattern: /
+    path: ""
     defaults:
         _controller: EkynaDemoBundle:Catalog:index
-    requirements:
-        _method: GET
+    methods: [GET]
     options:
         _cms:
             name: Catalogue
@@ -11,22 +10,22 @@ ekyna_demo_catalog_index:
             advanced: true
 
 ekyna_demo_catalog_category:
-    pattern: /{categorySlug}
+    path: /{categorySlug}
     defaults:
         _controller: EkynaDemoBundle:Catalog:category
+    methods: [GET]
     requirements:
-        _method: GET
         categorySlug: "[a-z0-9-/]+"
     options:
         _cms:
             parent: ekyna_demo_catalog_index
 
 ekyna_demo_catalog_product:
-    pattern: /{categorySlug}/{productSlug}.html
+    path: /{categorySlug}/{productSlug}.html
     defaults:
         _controller: EkynaDemoBundle:Catalog:product
+    methods: [GET|POST]
     requirements:
-        _method: GET|POST
         categorySlug: "[a-z0-9-]+"
         productSlug: "[a-z0-9-]+"
     options:

@@ -18,43 +18,43 @@ class BrandType extends ResourceTableType
     public function buildTable(TableBuilderInterface $builder, array $options)
     {
         $builder
-            ->addColumn('id', 'number', array(
+            ->addColumn('id', 'number', [
                 'sortable' => true,
-            ))
-            ->addColumn('title', 'anchor', array(
+            ])
+            ->addColumn('title', 'anchor', [
                 'label' => 'ekyna_core.field.title',
                 'sortable' => true,
                 'route_name' => 'ekyna_demo_brand_admin_show',
-                'route_parameters_map' => array(
+                'route_parameters_map' => [
                     'brandId' => 'id'
-                ),
-            ))
-            ->addColumn('actions', 'admin_actions', array(
-                'buttons' => array(
-                    array(
+                ],
+            ])
+            ->addColumn('actions', 'admin_actions', [
+                'buttons' => [
+                    [
                         'label' => 'ekyna_core.button.edit',
                         'class' => 'warning',
                         'route_name' => 'ekyna_demo_brand_admin_edit',
-                        'route_parameters_map' => array(
+                        'route_parameters_map' => [
                             'brandId' => 'id'
-                        ),
+                        ],
                         'permission' => 'edit',
-                    ),
-                    array(
+                    ],
+                    [
                         'label' => 'ekyna_core.button.remove',
                         'class' => 'danger',
                         'route_name' => 'ekyna_demo_brand_admin_remove',
-                        'route_parameters_map' => array(
+                        'route_parameters_map' => [
                             'brandId' => 'id'
-                        ),
+                        ],
                         'permission' => 'delete',
-                    ),
-                ),
-            ))
+                    ],
+                ],
+            ])
             ->addFilter('id', 'number')
-            ->addFilter('title', 'text', array(
+            ->addFilter('title', 'text', [
             	'label' => 'ekyna_core.field.title'
-            ))
+            ])
         ;
     }
 

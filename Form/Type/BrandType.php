@@ -18,19 +18,19 @@ class BrandType extends ResourceFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'text', array(
+            ->add('title', 'text', [
                 'label' => 'ekyna_core.field.title',
                 'required' => true,
-            ))
-            ->add('image', 'ekyna_upload', array(
+            ])
+            ->add('image', 'ekyna_upload', [
                 'label' => 'ekyna_core.field.image',
                 'data_class' => 'Ekyna\Bundle\DemoBundle\Entity\BrandImage',
                 'js_upload' => false,
                 'required' => false
-            ))
-            ->add('seo', 'ekyna_cms_seo', array(
+            ])
+            ->add('seo', 'ekyna_cms_seo', [
                 'label' => false
-            ))
+            ])
         ;
     }
 

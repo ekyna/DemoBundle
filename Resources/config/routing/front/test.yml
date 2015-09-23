@@ -1,41 +1,35 @@
 test_test:
-    pattern: /test
+    path: /test
     defaults:
         _controller: EkynaDemoBundle:Test:test
-    requirements:
-        _method: GET
+    methods: [GET]
 
 test_home:
-    pattern: /home
+    path: /home
     defaults:
         _controller: EkynaDemoBundle:Test:home
-    requirements:
-        _method: GET
+    methods: [GET]
 
 test_part_one:
-    pattern: /part-one
+    path: /part-one
     defaults:
         _controller: EkynaDemoBundle:Test:partOne
-    requirements:
-        _method: GET
+    methods: [GET]
 
 test_part_two:
-    pattern: /part-two
+    path: /part-two
     defaults:
         _controller: EkynaDemoBundle:Test:partTwo
-    requirements:
-        _method: GET
+    methods: [GET]
 
 test_part_three:
-    pattern: /part-three
+    path: /part-three
     defaults:
         _controller: EkynaDemoBundle:Test:partThree
-    requirements:
-        _method: GET
+    methods: [GET]
 
 test_purge:
-    pattern: /test-purge
+    path: /test-purge
     defaults:
         _controller: EkynaDemoBundle:Test:purge
-    requirements:
-        _method: GET
+    methods: [GET]

@@ -13,6 +13,9 @@ use Ekyna\Bundle\DemoBundle\DependencyInjection\Compiler\AdminMenuPass;
  */
 class EkynaDemoBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public function build(ContainerBuilder $container)
     {
         parent::build($container);

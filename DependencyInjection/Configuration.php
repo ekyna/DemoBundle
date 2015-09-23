@@ -55,10 +55,10 @@ class Configuration implements ConfigurationInterface
                             ->isRequired()
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->variableNode('templates')->defaultValue(array(
+                                ->variableNode('templates')->defaultValue([
                                     '_form.html' => 'EkynaDemoBundle:Admin/Brand:_form.html',
                                     'show.html'  => 'EkynaDemoBundle:Admin/Brand:show.html',
-                                ))->end()
+                                ])->end()
                                 ->scalarNode('parent')->end()
                                 ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\Brand')->end()
                                 ->scalarNode('controller')->end()
@@ -97,10 +97,10 @@ class Configuration implements ConfigurationInterface
                             ->isRequired()
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->variableNode('templates')->defaultValue(array(
+                                ->variableNode('templates')->defaultValue([
                                     '_form.html' => 'EkynaDemoBundle:Admin/Store:_form.html',
                                     'show.html'  => 'EkynaDemoBundle:Admin/Store:show.html',
-                                ))->end()
+                                ])->end()
                                 ->scalarNode('parent')->end()
                                 ->scalarNode('entity')->defaultValue('Ekyna\Bundle\DemoBundle\Entity\Store')->end()
                                 ->scalarNode('controller')->end()

@@ -20,15 +20,15 @@ class CategoryType extends ResourceFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'label' => 'ekyna_core.field.name',
                 'required' => true,
-            ))
-            ->add('color', 'ekyna_color_picker', array(
+            ])
+            ->add('color', 'ekyna_color_picker', [
                 'label' => 'ekyna_core.field.color',
                 'required' => true,
-            ))
-            ->add('parent', 'entity', array(
+            ])
+            ->add('parent', 'entity', [
                 'label' => 'ekyna_core.field.parent',
                 'class' => $this->dataClass,
                 'empty_value' => 'ekyna_core.field.root',
@@ -40,19 +40,19 @@ class CategoryType extends ResourceFormType
                 },
                 'property' => 'name',
                 'required' => false,
-            ))
-            ->add('media', 'ekyna_media_choice', array(
+            ])
+            ->add('media', 'ekyna_media_choice', [
                 'label' => 'ekyna_core.field.image',
                 'required' => false,
                 'types' => MediaTypes::IMAGE,
-            ))
-            ->add('seo', 'ekyna_cms_seo', array(
+            ])
+            ->add('seo', 'ekyna_cms_seo', [
                 'label' => false
-            ))
-            ->add('html', 'tinymce', array(
+            ])
+            ->add('html', 'tinymce', [
                 'label' => 'ekyna_core.field.content',
                 'theme' => 'advanced',
-            ))
+            ])
         ;
     }
 
