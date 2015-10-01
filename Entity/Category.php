@@ -13,36 +13,21 @@ use Ekyna\Bundle\MediaBundle\Model as Media;
  *
  * @author Étienne Dauvergne <contact@ekyna.com>
  */
-class Category implements Cms\SeoSubjectInterface, Media\MediaSubjectInterface, Core\TaggedEntityInterface
+class Category implements
+    Cms\SeoSubjectInterface,
+    Media\MediaSubjectInterface,
+    Core\TreeInterface,
+    Core\TaggedEntityInterface
 {
-    use Cms\SeoSubjectTrait;
-    use Media\MediaSubjectTrait;
-    use Core\TaggedEntityTrait;
+    use Cms\SeoSubjectTrait,
+        Media\MediaSubjectTrait,
+        Core\TaggedEntityTrait,
+        Core\TreeTrait;
 
     /**
      * @var integer
      */
     protected $id;
-
-    /**
-     * @var integer
-     */
-    protected $left;
-
-    /**
-     * @var integer
-     */
-    protected $right;
-
-    /**
-     * @var integer
-     */
-    protected $root;
-
-    /**
-     * @var integer
-     */
-    protected $level;
 
     /**
      * @var string
@@ -117,98 +102,6 @@ class Category implements Cms\SeoSubjectInterface, Media\MediaSubjectInterface, 
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set left
-     *
-     * @param integer $left
-     * @return Category
-     */
-    public function setLeft($left)
-    {
-        $this->left = $left;
-
-        return $this;
-    }
-
-    /**
-     * Get left
-     *
-     * @return integer 
-     */
-    public function getLeft()
-    {
-        return $this->left;
-    }
-
-    /**
-     * Set right
-     *
-     * @param integer $right
-     * @return Category
-     */
-    public function setRight($right)
-    {
-        $this->right = $right;
-
-        return $this;
-    }
-
-    /**
-     * Get right
-     *
-     * @return integer 
-     */
-    public function getRight()
-    {
-        return $this->right;
-    }
-
-    /**
-     * Set root
-     *
-     * @param integer $root
-     * @return Category
-     */
-    public function setRoot($root)
-    {
-        $this->root = $root;
-
-        return $this;
-    }
-
-    /**
-     * Get root
-     *
-     * @return integer 
-     */
-    public function getRoot()
-    {
-        return $this->root;
-    }
-
-    /**
-     * Set level
-     *
-     * @param integer $level
-     * @return Category
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return integer 
-     */
-    public function getLevel()
-    {
-        return $this->level;
     }
 
     /**
