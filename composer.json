@@ -11,10 +11,10 @@
         "MIT"
     ],
     "require" : {
-        "ekyna/cms-bundle" : "0.4.x-dev",
-        "ekyna/order-bundle" : "0.4.x-dev",
-        "ekyna/product-bundle" : "0.4.x-dev",
-        "ekyna/characteristics-bundle" : "0.4.x-dev"
+        "ekyna/cms-bundle" : "1.0.x-dev",
+        "ekyna/order-bundle" : "1.0.x-dev",
+        "ekyna/product-bundle" : "1.0.x-dev",
+        "ekyna/characteristics-bundle" : "1.0.x-dev"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
@@ -27,7 +27,7 @@
     },
     "extra" : {
         "branch-alias" : {
-            "dev-master" : "0.4.x-dev"
+            "dev-master" : "1.0.x-dev"
         }
     }
 }
