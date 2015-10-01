@@ -364,9 +364,6 @@ class Smartphone
     public function getEntityTags()
     {
         $tags = [$this->getEntityTag()];
-        /*if (null !== $this->images) {
-
-        }*/
         if (null !== $this->seo) {
             $tags[] = $this->seo->getEntityTag();
         }
