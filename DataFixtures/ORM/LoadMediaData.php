@@ -131,7 +131,7 @@ class LoadMediaData extends Loader implements FixtureInterface, OrderedFixtureIn
             /** @var \Ekyna\Bundle\MediaBundle\Model\MediaInterface $media */
             $media = $this->mediaRepository->createNew();
             $media
-                ->setTitle($this->faker->sentence(rand(2,3)))
+                ->setTitle($this->faker->sentence(rand(2,3), false))
                 //->setDescription('<p>'.$this->faker->sentence().'</p>')
                 ->setFolder($root)
                 ->setFile(new File($target))
@@ -182,7 +182,7 @@ class LoadMediaData extends Loader implements FixtureInterface, OrderedFixtureIn
             /** @var \Ekyna\Bundle\MediaBundle\Model\MediaInterface $media */
             $media = $this->mediaRepository->createNew();
             $media
-                ->setTitle($this->faker->sentence())
+                ->setTitle($this->faker->sentence(rand(2,3), false))
                 //->setDescription('<p>'.$this->faker->sentence().'</p>')
                 ->setFolder($folder)
                 ->setFile(new File($target))
