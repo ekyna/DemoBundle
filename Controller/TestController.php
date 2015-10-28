@@ -15,7 +15,27 @@ class TestController extends Controller
 {
     public function testAction()
     {
-        $exposedRoutes = array(
+        $subscriptions = $this
+            ->get('ekyna_subscription.subscription.repository')
+            ->findAll()
+        ;
+        $subscription = current($subscriptions);
+
+        $orders = $this
+            ->get('ekyna_order.order.repository')
+            ->findBySubject($subscription, $subscription->getUser())
+        ;
+
+        $num = 'none';
+        if (0 < count($orders)) {
+            $num = current($orders)->getNumber();
+        }
+
+        return new Response('<html><body>' . $num . '</body></html>');
+
+
+
+        /*$exposedRoutes = array(
             'literal'   => new ExtractedRoute(array(array('text', '/literal')), array(), array()),
             'blog_post' => new ExtractedRoute(array(array('variable', '/', '[^/]+?', 'slug'), array('text', '/blog-post')), array(), array()),
             'list'      => new ExtractedRoute(array(array('variable', '/', '\d+', 'page'), array('text', '/list')), array('page' => 1), array('page' => '\d+'))
@@ -26,7 +46,7 @@ class TestController extends Controller
         $response = new Response($json);
         $response->headers->add(array('Content-Type: application/json'));
 
-        return $response;
+        return $response;*/
     }
 
     public function homeAction()
