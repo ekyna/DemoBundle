@@ -71,7 +71,7 @@ class CatalogController extends Controller
     {
         $category = $this->findCategory($request);
 
-        $this->get('ekyna_cms.menu.builder')->breadcrumbAppend(
+        $this->get('ekyna_cms.menu.breadcrumb_builder')->breadcrumbAppend(
             'category-'.$category->getId(),
             $category,
             'ekyna_demo_catalog_category',
@@ -115,7 +115,7 @@ class CatalogController extends Controller
             throw new NotFoundHttpException('Product not found.');
         }
 
-        $this->get('ekyna_cms.menu.builder')->breadcrumbAppend(
+        $this->get('ekyna_cms.menu.breadcrumb_builder')->breadcrumbAppend(
             'product-'.$product->getId(),
             (string) $product,
             'ekyna_demo_catalog_product',
