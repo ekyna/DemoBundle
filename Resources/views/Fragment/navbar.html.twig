@@ -10,7 +10,7 @@
             <a class="navbar-brand" href="{{ path('home') }}">DemoBundle</a>
         </div>
         <div class="navbar-collapse collapse">
-            {{ cms_menu('main', {'style': 'navbar'}) }}
+            {{ cms_menu('main', {'depth': 2, 'style': 'navbar'}) }}
             {#{ render_esi(controller('EkynaUserBundle:Account:loginWidget')) }#}
         </div>
     </div>
