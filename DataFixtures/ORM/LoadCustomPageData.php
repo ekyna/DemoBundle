@@ -86,6 +86,7 @@ class LoadCustomPageData extends AbstractFixture
             $child
                 ->setName($name)
                 ->setTitle($name)
+                ->setBreadcrumb($name)
                 ->setStatic(false)
                 ->setLocked(false)
                 ->setController('default')
@@ -96,7 +97,7 @@ class LoadCustomPageData extends AbstractFixture
             /** @var \Ekyna\Bundle\CmsBundle\Model\SeoInterface $seo */
             $seo = $this->seoRepository->createNew();
             $seo
-                ->setTitle($this->faker->sentence(rand(4,6), false))
+                ->setTitle($name)
                 ->setDescription($this->faker->sentence(rand(4,6), false))
             ;
             $child->setSeo($seo);
