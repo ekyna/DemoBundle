@@ -15,26 +15,26 @@ class TestController extends Controller
 {
     public function testAction()
     {
-        $exposedRoutes = [
-            'literal'   => new ExtractedRoute([['text', '/literal']], [], []),
-            'blog_post' => new ExtractedRoute([['variable', '/', '[^/]+?', 'slug'], ['text', '/blog-post']], [], []),
-            'list'      => new ExtractedRoute([['variable', '/', '\d+', 'page'], ['text', '/list']], ['page' => 1], ['page' => '\d+'])
-        ];
+        $exposedRoutes = array(
+            'literal'   => new ExtractedRoute(array(array('text', '/literal')), array(), array()),
+            'blog_post' => new ExtractedRoute(array(array('variable', '/', '[^/]+?', 'slug'), array('text', '/blog-post')), array(), array()),
+            'list'      => new ExtractedRoute(array(array('variable', '/', '\d+', 'page'), array('text', '/list')), array('page' => 1), array('page' => '\d+'))
+        );
 
         $json = $this->get('fos_js_routing.serializer')->serialize($exposedRoutes, 'json');
 
         $response = new Response($json);
-        $response->headers->add(['Content-Type: application/json']);
+        $response->headers->add(array('Content-Type: application/json'));
 
         return $response;
     }
 
     public function homeAction()
     {
-        $response = $this->render('EkynaDemoBundle:Test:home.html.twig', [
+        $response = $this->render('EkynaDemoBundle:Test:home.html.twig', array(
             'message' => 'Uber home',
             'date' => new \DateTime(),
-        ]);
+        ));
 
         return $this
             ->tagResponse($response, 'demo_test.home[id:2]')
@@ -44,9 +44,9 @@ class TestController extends Controller
 
     public function partOneAction()
     {
-        $response = $this->render('EkynaDemoBundle:Test:part_one.html.twig', [
+        $response = $this->render('EkynaDemoBundle:Test:part_one.html.twig', array(
             'date' => new \DateTime(),
-        ]);
+        ));
 
         return $this
             ->tagResponse($response, 'test-part-one')
@@ -56,9 +56,9 @@ class TestController extends Controller
 
     public function partTwoAction()
     {
-        $response = $this->render('EkynaDemoBundle:Test:part_two.html.twig', [
+        $response = $this->render('EkynaDemoBundle:Test:part_two.html.twig', array(
             'date' => new \DateTime(),
-        ]);
+        ));
 
         return $this
             ->tagResponse($response, 'test-part-two')
@@ -68,9 +68,9 @@ class TestController extends Controller
 
     public function partThreeAction()
     {
-        $response = $this->render('EkynaDemoBundle:Test:part_three.html.twig', [
+        $response = $this->render('EkynaDemoBundle:Test:part_three.html.twig', array(
             'date' => new \DateTime(),
-        ]);
+        ));
 
         return $this
             ->tagResponse($response, 'test-part-three')
@@ -81,7 +81,7 @@ class TestController extends Controller
     public function purgeAction()
     {
         $this->getCacheManager()
-            ->invalidateTags(['demo_test.home[id:2]', 'test-part-one', 'test-part-two', 'test-part-three'])
+            ->invalidateTags(array('demo_test.home[id:2]', 'test-part-one', 'test-part-two', 'test-part-three'))
             ->flush()
         ;
 
@@ -97,7 +97,7 @@ class TestController extends Controller
     protected function tagResponse(Response $response, $tags, $replace = false)
     {
         if (!is_array($tags)) {
-            $tags = [$tags];
+            $tags = array($tags);
         }
         $this->getCacheManager()->tagResponse($response, $tags, $replace);
 

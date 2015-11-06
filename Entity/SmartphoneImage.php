@@ -3,7 +3,6 @@
 namespace Ekyna\Bundle\DemoBundle\Entity;
 
 use Ekyna\Bundle\MediaBundle\Model as Media;
-use Ekyna\Bundle\CoreBundle\Model as Core;
 
 /**
  * Class SmartphoneImage
@@ -23,6 +22,7 @@ class SmartphoneImage implements Media\GalleryMediaInterface
      * @var Smartphone
      */
     protected $smartphone;
+
 
     /**
      * Returns the id.
