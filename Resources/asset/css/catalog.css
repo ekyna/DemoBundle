@@ -47,6 +47,7 @@
  * DETAIL
  */
 .product-detail-gallery-thumbs .thumbnail {
+    display: inline-block;
     width: 30%;
     height: auto;
     margin-left: 5%;
