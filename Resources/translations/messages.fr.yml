@@ -42,7 +42,7 @@ ekyna_demo:
             remove: Supprimer le smartphone
         alert:
             empty_list: Aucun smartphone configuré
-    smartphoneVariant:
+    smartphone_variant:
         label:
             singular: Variante
             plural: Variantes

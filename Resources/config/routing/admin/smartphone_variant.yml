@@ -1,43 +1,43 @@
-#ekyna_demo_smartphoneVariant_admin_home:
+#ekyna_demo_smartphone_variant_admin_home:
 #    path: ""
 #    defaults: { _controller: "ekyna_demo.smartphone.controller:homeAction" }
 #    methods: [GET]
 #    requirements:
 #        smarpthoneId: \d+
 
-#ekyna_demo_smartphoneVariant_admin_list:
+#ekyna_demo_smartphone_variant_admin_list:
 #    path: /list
 #    defaults: { _controller: "ekyna_demo.smartphone.controller:listAction" }
 #    methods: [GET|POST]
 #    requirements:
 #        smarpthoneId: \d+
 
-ekyna_demo_smartphoneVariant_admin_new:
+ekyna_demo_smartphone_variant_admin_new:
     path: /new
-    defaults: { _controller: "ekyna_demo.smartphoneVariant.controller:newAction" }
+    defaults: { _controller: "ekyna_demo.smartphone_variant.controller:newAction" }
     methods: [GET|POST]
     requirements:
         smartphoneId: \d+
 
-ekyna_demo_smartphoneVariant_admin_show:
+ekyna_demo_smartphone_variant_admin_show:
     path: /{smartphoneVariantId}/show
-    defaults: { _controller: "ekyna_demo.smartphoneVariant.controller:showAction" }
+    defaults: { _controller: "ekyna_demo.smartphone_variant.controller:showAction" }
     methods: [GET]
     requirements:
         smartphoneId: \d+
         smartphoneVariantId: \d+
 
-ekyna_demo_smartphoneVariant_admin_edit:
+ekyna_demo_smartphone_variant_admin_edit:
     path: /{smartphoneVariantId}/edit
-    defaults: { _controller: "ekyna_demo.smartphoneVariant.controller:editAction" }
+    defaults: { _controller: "ekyna_demo.smartphone_variant.controller:editAction" }
     methods: [GET|POST]
     requirements:
         smartphoneId: \d+
         smartphoneVariantId: \d+
 
-ekyna_demo_smartphoneVariant_admin_remove:
+ekyna_demo_smartphone_variant_admin_remove:
     path: /{smartphoneVariantId}/remove
-    defaults: { _controller: "ekyna_demo.smartphoneVariant.controller:removeAction" }
+    defaults: { _controller: "ekyna_demo.smartphone_variant.controller:removeAction" }
     methods: [GET|POST]
     requirements:
         smartphoneId: \d+

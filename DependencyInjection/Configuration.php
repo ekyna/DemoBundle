@@ -80,7 +80,7 @@ class Configuration implements ConfigurationInterface
                                 ->scalarNode('table')->defaultValue('Ekyna\Bundle\DemoBundle\Table\Type\SmartphoneType')->end()
                             ->end()
                         ->end()
-                        ->arrayNode('smartphoneVariant')
+                        ->arrayNode('smartphone_variant')
                             ->isRequired()
                             ->addDefaultsIfNotSet()
                             ->children()

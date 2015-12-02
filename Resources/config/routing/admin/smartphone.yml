@@ -55,6 +55,6 @@ ekyna_demo_smartphone_admin_remove:
     requirements:
         smartphoneId: \d+
 
-ekyna_demo_smartphoneVariant_admin:
-    resource: "smartphoneVariant.yml"
+ekyna_demo_smartphone_variant_admin:
+    resource: "smartphone_variant.yml"
     prefix:   /{smartphoneId}/variants

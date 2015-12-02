@@ -27,6 +27,6 @@ class SmartphoneVariantType extends ResourceFormType
      */
     public function getName()
     {
-        return 'ekyna_demo_smartphoneVariant';
+        return 'ekyna_demo_smartphone_variant';
     }
 }

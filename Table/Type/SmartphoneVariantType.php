@@ -24,7 +24,7 @@ class SmartphoneVariantType extends ResourceTableType
             ->addColumn('name', 'anchor', [
                 'label' => 'ekyna_core.field.name',
                 //'sortable' => true,
-                'route_name' => 'ekyna_demo_smartphoneVariant_admin_show',
+                'route_name' => 'ekyna_demo_smartphone_variant_admin_show',
                 'route_parameters_map' => [
                     'smartphoneId' => 'smartphone.id',
                     'smartphoneVariantId' => 'id',
@@ -35,7 +35,7 @@ class SmartphoneVariantType extends ResourceTableType
                     [
                         'label' => 'ekyna_core.button.edit',
                         'class' => 'warning',
-                        'route_name' => 'ekyna_demo_smartphoneVariant_admin_edit',
+                        'route_name' => 'ekyna_demo_smartphone_variant_admin_edit',
                         'route_parameters_map' => [
                             'smartphoneId' => 'smartphone.id',
                             'smartphoneVariantId' => 'id',
@@ -45,7 +45,7 @@ class SmartphoneVariantType extends ResourceTableType
                     [
                         'label' => 'ekyna_core.button.remove',
                         'class' => 'danger',
-                        'route_name' => 'ekyna_demo_smartphoneVariant_admin_remove',
+                        'route_name' => 'ekyna_demo_smartphone_variant_admin_remove',
                         'route_parameters_map' => [
                             'smartphoneId' => 'smartphone.id',
                             'smartphoneVariantId' => 'id',
@@ -66,6 +66,6 @@ class SmartphoneVariantType extends ResourceTableType
      */
     public function getName()
     {
-        return 'ekyna_demo_smartphoneVariant';
+        return 'ekyna_demo_smartphone_variant';
     }
 }
